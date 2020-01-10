@@ -138,7 +138,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="doublyLinkedList.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="tickets.c" />
+    <ClCompile Include="users.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

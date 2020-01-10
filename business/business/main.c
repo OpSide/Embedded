@@ -1,5 +1,9 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <time.h>
+#include "doublyLinkedList.h"
+struct Node* userListHead;
+char* fp_path;
 
 #define USERS_PATH "users.txt"
 /***
@@ -17,7 +21,9 @@
 * Open this file and append new records into it.
 ***/
 
-void readUsers(char* path);
+void readUsers(char* path, struct Node* userListHead);
+void AddUser(char* path, struct Node* userListHead);
+
 /***
 * Handle function: get's the path of the users file, and print all users information.
 * You may change it according to your needs.
@@ -32,39 +38,15 @@ void main() {
 
 	int day, month, year, hours, mins;
 
-	readUsers(USERS_PATH);
-
+	readUsers(USERS_PATH, userListHead);
+	
 	getDateTime(&day, &month, &year, &hours, &mins);
 	printf("Current computer time: %02d/%02d/%d, %02d:%02d\n", day, month, year, hours, mins);
-
+	AddUser(USERS_PATH, userListHead);
 	system("pause");
 }
 
-void readUsers(char* path)
-{
-	FILE* fp;
-	int level;
-	char temp[100], username[16], password[16], fullname[21];
 
-	fopen_s(&fp, path, "r");
-	if (!fp)
-	{
-		printf("File not found!\n");
-		return;
-	}
-
-	//header
-	fgets(temp, 100, fp);
-	puts(temp);
-
-	while (fscanf_s(fp, "%15[^\n] %15[^\n] %1d %20[^\n]", username, 16, password, 16, &level, fullname, 21) != EOF)
-	{
-		printf_s("%-15s %-15s %-1d %-20s\n", username, password, level, fullname);
-	}
-
-	fclose(fp);
-	return;
-}
 
 
 void getDateTime(int* day, int* month, int* year, int* hours, int* mins)

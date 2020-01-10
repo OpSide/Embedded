@@ -1,2 +1,3 @@
-username        password        L fullname            
-admin           admin           3 System Manager      
+username        password        fullname         L
+admin           admin           System Manager   3
+barak           Aa123456        barak pahima    3
