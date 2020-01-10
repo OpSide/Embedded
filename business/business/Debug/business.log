@@ -1,2 +1,12 @@
-﻿  main.c
+﻿  doublyLinkedList.c
+  main.c
+  tickets.c
+  users.c
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(34,10): warning C4098: 'readUsers': 'void' function returning a value
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(13,18): warning C4101: 'username': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(12,6): warning C4101: 'level': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(13,32): warning C4101: 'password': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(13,46): warning C4101: 'fullname': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(49,26): warning C4013: 'strlen' undefined; assuming extern returning int
+  Generating Code...
   business.vcxproj -> C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\Debug\business.exe
