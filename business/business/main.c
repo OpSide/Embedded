@@ -60,6 +60,7 @@ void readUsers(char* path)
 	while (fscanf_s(fp, "%15[^\n] %15[^\n] %1d %20[^\n]", username, 16, password, 16, &level, fullname, 21) != EOF)
 	{
 		printf_s("%-15s %-15s %-1d %-20s\n", username, password, level, fullname);
+		
 	}
 
 	fclose(fp);
