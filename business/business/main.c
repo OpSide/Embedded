@@ -2,63 +2,64 @@
 #include <stdio.h>
 #include <time.h>
 #include "doublyLinkedList.h"
+struct Node* userListHead;
+char* fp_path;
 
+#define USERS_PATH "users.txt"
+/***
+* This is the path where the users are located.
+***/
 
-void readUsers(char* path, struct Node* userListHead)
-{
-	struct Node* userCurrent;
-	FILE* fp;
-	user tempUser;
-	int level;
-	char temp[100], username[16], password[16], fullname[16];
+#define ITEMS_PATH "items.txt"
+/***
+* This is the path where the item file is located.
+***/
 
-	fopen_s(&fp, path, "r");
-	if (!fp)
-	{
-		printf("File not found!\n");
-		return;
-	}
-	userListHead = NULL;
+#define LOG_PATH "log.txt"
+/***
+* This is the path where the log file is located.
+* Open this file and append new records into it.
+***/
 
-	//header
-	fgets(temp, 100, fp);
-	puts(temp);
+void readUsers(char* path, struct Node* userListHead);
+void AddUser(char* path, struct Node* userListHead);
 
-	while (fscanf(fp, "%15[^\n] %15[^\n] %15[^\n]%1d", tempUser.userName, tempUser.password, tempUser.fullName, &tempUser.level) > 0)
-	{
-		InsertAtTail(&userListHead, tempUser);
-	}
-	Print(&userListHead);
-	userCurrent = userListHead;
-	fclose(fp);
-	return 1;
+/***
+* Handle function: get's the path of the users file, and print all users information.
+* You may change it according to your needs.
+***/
+
+void getDateTime(int* day, int* month, int* year, int* hours, int* mins);
+/***
+* Handle function: Returns by referfance the current date and time
+***/
+
+void main() {
+
+	int day, month, year, hours, mins;
+
+	readUsers(USERS_PATH, userListHead);
+
+	getDateTime(&day, &month, &year, &hours, &mins);
+	printf("Current computer time: %02d/%02d/%d, %02d:%02d\n", day, month, year, hours, mins);
+	AddUser(USERS_PATH, userListHead);
+	system("pause");
 }
 
-void AddUser(char* fp_path, struct Node* userListHead)
+
+
+
+void getDateTime(int* day, int* month, int* year, int* hours, int* mins)
 {
-	user tempUser;
-	FILE* fp = fopen(fp_path, "a");
-	if (!fp)
-	{
-		printf("File doesnt exists\n");
-		return;
-	}
+	time_t rawtime;
+	struct tm timeinfo;
 
-	printf("Enter username: ");
-	fgets(tempUser.userName, 15, stdin);
-	tempUser.userName[strlen(tempUser.userName) - 1] = '\0';
-	printf("Enter password: ");
-	fgets(tempUser.password, 15, stdin);
-	tempUser.password[strlen(tempUser.password) - 1] = '\0';
-	printf("Enter full name ");
-	fgets(tempUser.fullName, 15, stdin);
-	tempUser.fullName[strlen(tempUser.fullName) - 1] = '\0';
-	printf("Enter level: ");
-	scanf("%1d", &tempUser.level);
+	time(&rawtime);
+	localtime_s(&timeinfo, &rawtime);
 
-
-	fprintf(fp, "%-15s %-15s %-15s %-1d\n", tempUser.userName, tempUser.password, tempUser.fullName, tempUser.level);
-	InsertAtTail(&userListHead, tempUser);
-	printf("New user added!\n");
-	fclose(fp);
+	*day = timeinfo.tm_mday;
+	*month = timeinfo.tm_mon + 1;
+	*year = timeinfo.tm_year + 1900;
+	*hours = timeinfo.tm_hour;
+	*mins = timeinfo.tm_min;
 }
