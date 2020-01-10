@@ -1,0 +1,2 @@
+username        password        L fullname            
+admin           admin           3 System Manager      
