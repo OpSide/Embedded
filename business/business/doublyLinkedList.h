@@ -11,13 +11,13 @@ typedef struct
 	char trackName[31];
 } song;
 
-typedef struct
-{
-	char userName[16];
-	char fullName[16];
-	char password[16];
-	int level;
-} user;
+//typedef struct
+//{
+//	char userName[16];
+//	char fullName[16];
+//	char password[16];
+//	int level;
+//} user;
 
 struct Node {
 	user data;

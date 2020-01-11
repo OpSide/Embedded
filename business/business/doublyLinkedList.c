@@ -1,5 +1,5 @@
 #include "doublyLinkedList.h"
-
+#include "doubly_list.h"
 //Creates a new Node and returns pointer to it.
 struct Node* GetNewNode(user x) {
 	struct Node* newNode
@@ -36,8 +36,8 @@ void InsertAtTail(struct Node ** head, user x) {
 }
 
 //Prints all the elements in linked list in forward traversal order
-void Print(struct Node ** head) {
-	struct Node* temp = *head;
+void Print(list lst) {
+	node* temp = lst.head;
 	printf("\n");
 	while (temp != NULL) {
 		//printf("%5d %30s %30s %10d %30s\n", temp->data.id, temp->data.artistName, temp->data.albumName, temp->data.trackNo, temp->data.trackName);

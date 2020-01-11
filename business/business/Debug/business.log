@@ -1,10 +1,16 @@
 ﻿  main.c
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(34,10): warning C4098: 'readUsers': 'void' function returning a value
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(13,18): warning C4101: 'username': unreferenced local variable
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(12,6): warning C4101: 'level': unreferenced local variable
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(13,32): warning C4101: 'password': unreferenced local variable
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(13,46): warning C4101: 'fullname': unreferenced local variable
-  LINK : C:\Users\Barak\Desktop\HIT\Barak\year4\╫₧╫ó╫æ╫ô╫ö ╫₧╫¬╫º╫ô╫₧╫¬ ╫æ╫¬╫¢╫á╫ò╫¬\Embedded\business\Debug\business.exe not found or not built by the last incremental link; performing full link
-users.obj : error LNK2005: _readUsers already defined in main.obj
-MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol _main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-C:\Users\Barak\Desktop\HIT\Barak\year4\╫₧╫ó╫æ╫ô╫ö ╫₧╫¬╫º╫ô╫₧╫¬ ╫æ╫¬╫¢╫á╫ò╫¬\Embedded\business\Debug\business.exe : fatal error LNK1120: 1 unresolved externals
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(44,33): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(52,14): warning C4013: 'LogIn' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(57,6): warning C4013: 'free' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(59,8): warning C4013: 'system' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(41,7): warning C4101: 'username': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(40,18): warning C4101: 'year': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(40,11): warning C4101: 'month': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(40,6): warning C4101: 'day': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(40,31): warning C4101: 'mins': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(42,7): warning C4101: 'password': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(40,24): warning C4101: 'hours': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(118,12): warning C4013: 'strstr' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(118,45): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(118,86): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
+  business.vcxproj -> C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\Debug\business.exe
