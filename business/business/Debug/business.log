@@ -1,6 +1,4 @@
-﻿  doubly_list.c
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\doubly_list.c(225,8): warning C4013: 'printf' undefined; assuming extern returning int
-  main.c
+﻿  main.c
 C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(47,43): warning C4013: 'malloc' undefined; assuming extern returning int
 C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(55,14): warning C4013: 'LogIn' undefined; assuming extern returning int
 C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(64,6): warning C4013: 'free' undefined; assuming extern returning int
@@ -16,16 +14,8 @@ C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embe
 C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(124,12): warning C4013: 'strstr' undefined; assuming extern returning int
 C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(124,45): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
 C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(124,86): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
-  users.c
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(29,7): warning C4013: 'Print' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(31,10): warning C4098: 'ReadUsers': 'void' function returning a value
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(47,26): warning C4013: 'strlen' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(72,19): warning C4013: 'strstr' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(75,15): warning C4013: 'strncmp' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(90,12): warning C4013: 'memmove' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(72,1): warning C4047: 'initializing': 'char *' differs in levels of indirection from 'int'
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(120,9): warning C4013: 'strncpy' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(128,32): warning C4013: 'malloc' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(146,8): warning C4013: 'free' undefined; assuming extern returning int
-  Generating Code...
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(211,13): warning C4098: 'menu': 'void' function returning a value
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(222,13): warning C4098: 'menu': 'void' function returning a value
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(275,14): warning C4098: 'menu': 'void' function returning a value
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(281,12): warning C4098: 'menu': 'void' function returning a value
   business.vcxproj -> C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\Debug\business.exe
