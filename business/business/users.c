@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include <time.h>
 #include "doubly_list.h"
+#include <sys/stat.h>
 
 // Read user function
-void readUsers(char* path,list* lst)
+void ReadUsers(char* path,listUsers* lst)
 {
 	FILE* fp;
-	int level;
-	char temp[100], username[16], password[16], fullname[16];
+	char temp[100];
 
 	fopen_s(&fp, path, "r");
 	if (!fp)
@@ -23,7 +23,7 @@ void readUsers(char* path,list* lst)
 	user tempUser;
 	while (fscanf(fp, "%15[^\n] %15[^\n] %15[^\n]%1d\n", tempUser.userName, tempUser.password, tempUser.fullName, &tempUser.level) > 0)
 	{
-		node* tempNode = allocItem(tempUser);
+		nodeUser* tempNode = allocItemUser(tempUser);
 		insertLast(lst, tempNode);
 	}
 	Print(*lst);
@@ -32,7 +32,7 @@ void readUsers(char* path,list* lst)
 }
 
 // Add user function
-void AddUser(char *fp_path, list* lst)
+void AddUser(char *fp_path, listUsers* lst)
 {
 	user tempUser;
 	FILE* fp = fopen(fp_path, "a");
@@ -54,114 +54,113 @@ void AddUser(char *fp_path, list* lst)
 	printf("Enter level: ");
 	scanf("%1d", &tempUser.level);
 
-	node* tempNode = allocItem(tempUser);
+	nodeUser* tempNode = allocItemUser(tempUser);
 	fprintf(fp, "%-15s %-15s %-15s %-1d\n", tempUser.userName, tempUser.password, tempUser.fullName, tempUser.level);
 	insertLast(lst, tempNode);
 	printf("New user added!\n");
 	fclose(fp);
 }
 
-// Delete user function
-//void DeleteUser()
-//{
-//	char tempSongId[5];
-//	char singId[6];
-//	char* sPtr;
-//	int intSongId;
-//	struct stat st;
-//	struct Node* tempNode;
-//
-//	printf("Please enter song ID: ");
-//	scanf("%s", tempSongId);
-//
-//	singId[0] = '\n';
-//	sPtr = singId + 1;
-//	strncpy(sPtr, tempSongId, 5);
-//
-//
-//	if (stat(fp_path, &st) != -1)
-//	{
-//		FILE* fp = fopen(fp_path, "rb");
-//		if (fp != NULL)
-//		{
-//			char* buffer = (char*)malloc(st.st_size);
-//
-//			if (fread(buffer, 1, st.st_size, fp) == st.st_size)
-//			{
-//				size_t newSize;
-//
-//				fclose(fp);
-//
-//				newSize = DeleteLine(buffer, st.st_size, singId);
-//
-//				fp = fopen(fp_path, "wb");
-//				if (fp != NULL)
-//				{
-//					fwrite(buffer, 1, newSize, fp);
-//					fclose(fp);
-//				}
-//				else perror(fp_path);
-//			}
-//			free(buffer);
-//		}
-//		else perror(fp_path);
-//	}
-//	else printf("File not found %s", fp_path);
-//
-//	intSongId = atoi(singId);
-//	tempNode = playlist_head;
-//	if (tempNode == NULL) return;
-//	while (tempNode != NULL)
-//	{
-//		if (tempNode->data.id == intSongId)
-//		{
-//			deleteNode(&tempNode);
-//			break;
-//		}
-//		tempNode = tempNode->next;
-//	}
-//}
-//
-//
-//static size_t DeleteLine(char* buffer, size_t size, const char* playerName)
-//{
-//	char* p = buffer;
-//	int done = 0;
-//	size_t len = strlen(playerName);
-//	size_t newSize = 0;
-//	do
-//	{
-//		char* q = strstr(p, playerName);
-//		if (q != NULL)
-//		{
-//			if (strncmp(q, playerName, len) == 0)
-//			{
-//				char* line;
-//				size_t lineSize;
-//				size_t restSize;
-//
-//				q++;
-//				lineSize = 1;
-//
-//
-//				for (line = q; *line != '\n'; ++line)
-//					++lineSize;
-//
-//				restSize = (size_t)((buffer + size) - (q + lineSize));
-//
-//				memmove(q, q + lineSize, restSize);
-//
-//				newSize = size - lineSize;
-//				done = 1;
-//			}
-//			else p = q + 1;
-//		}
-//		else
-//		{
-//			puts("Name doest exists");
-//			done = 1;
-//		}
-//	} while (!done);
-//
-//	return newSize;
-//}
+static size_t DeleteLine(char* buffer, size_t size, const char* userName)
+{
+	char* p = buffer;
+	int done = 0;
+	size_t len = strlen(userName);
+	size_t newSize = 0;
+	do
+	{
+		char* q = strstr(p, userName);
+		if (q != NULL)
+		{
+			if (strncmp(q, userName, len) == 0)
+			{
+				char* line;
+				size_t lineSize;
+				size_t restSize;
+
+				q++;
+				lineSize = 1;
+
+
+				for (line = q; *line != '\n'; ++line)
+					++lineSize;
+
+				restSize = (size_t)((buffer + size) - (q + lineSize));
+
+				memmove(q, q + lineSize, restSize);
+
+				newSize = size - lineSize;
+				done = 1;
+			}
+			else p = q + 1;
+		}
+		else
+		{
+			puts("Name doest exists");
+			done = 1;
+		}
+	} while (!done);
+
+	return newSize;
+}
+
+void DeleteUser(char* fp_path, listUsers* lst)
+{
+	char tempUserName[14];
+	char userName[15];
+	char* uPtr;
+	struct stat st;
+	struct nodeUser* tempNode;
+	
+	printf("Please username: ");
+	scanf("%s", tempUserName);
+
+	userName[0] = '\n';
+	uPtr = userName + 1;
+	strncpy(uPtr, tempUserName, 14);
+
+
+	if (stat(fp_path, &st) != -1)
+	{
+		FILE* fp = fopen(fp_path, "rb");
+		if (fp != NULL)
+		{
+			char* buffer = (char*)malloc(st.st_size);
+
+			if (fread(buffer, 1, st.st_size, fp) == st.st_size)
+			{
+				size_t newSize;
+
+				fclose(fp);
+
+				newSize = DeleteLine(buffer, st.st_size, userName);
+
+				fp = fopen(fp_path, "wb");
+				if (fp != NULL)
+				{
+					fwrite(buffer, 1, newSize, fp);
+					fclose(fp);
+				}
+				else perror(fp_path);
+			}
+			free(buffer);
+		}
+		else perror(fp_path);
+	}
+	else printf("File not found %s", fp_path);
+
+
+	tempNode = lst->head;
+	if (tempNode == NULL) return;
+	while (tempNode != NULL)
+	{
+		if (tempNode->data.userName == userName)
+		{
+			deleteLink(lst, tempNode);
+			break;
+		}
+		tempNode = tempNode->next;
+	}
+}
+
+

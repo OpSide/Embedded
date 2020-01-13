@@ -1,22 +1,22 @@
 #include <stdlib.h>
 #include "doubly_list.h"
 
-void initList(list *lst)
+void initList(listUsers *lst)
 {
 	lst->head = lst->tail = NULL;	
 }
 
-//is list empty
-int isEmpty(list *lst)
+//is listUsers empty
+int isEmpty(listUsers *lst)
 {
 	return lst->head == NULL;
 }
 
-//return amount of nodes in the list
-int length(list *lst)
+//return amount of nodes in the listUsers
+int length(listUsers *lst)
 {
 	int length = 0;
-	node *current;
+	nodeUser *current;
 	
 	for(current = lst->head; current != NULL; current = current->next)
 		length++;
@@ -25,21 +25,28 @@ int length(list *lst)
 }
 
 //allocate a new item
-node* allocItem(user data)
+nodeUser* allocItemUser(user data)
 {
-	node* item = (node*)malloc(sizeof(node));
+	nodeUser* item = (nodeUser*)malloc(sizeof(nodeUser));
 	item->data = data;
 	return item;
 }
 
+//nodeUser* allocItemTicket(ticket data)
+//{
+//	nodeUser* item = (nodeUser*)malloc(sizeof(nodeUser));
+//	item->data = data;
+//	return item;
+//}
+
 ////return item located in spesific index
-node* getLinkByIndex(list *lst, int idx)
+nodeUser* getLinkByIndex(listUsers *lst, int idx)
 {
 	int i;
 	//start from the first link
-	node* link = lst->head;
+	nodeUser* link = lst->head;
 
-	//navigate through list
+	//navigate through listUsers
 	for (i=0; i<idx && link != NULL ;i++)
 		link = link->next;
 	
@@ -47,7 +54,7 @@ node* getLinkByIndex(list *lst, int idx)
 }
 
 //insert item at the first location
-int insertFirst(list *lst, node *item)
+int insertFirst(listUsers *lst, nodeUser *item)
 {
 	if (item != NULL)
 	{
@@ -74,7 +81,7 @@ int insertFirst(list *lst, node *item)
 }
 
 //insert item at the last location
-int insertLast(list *lst, node *item)
+int insertLast(listUsers *lst, nodeUser *item)
 {
 	if (item != NULL)
 	{
@@ -101,13 +108,13 @@ int insertLast(list *lst, node *item)
 }
 
 //delete first item
-int deleteFirst(list *lst)
+int deleteFirst(listUsers *lst)
 {	
-	//if list is empty there is nothing to delete
+	//if listUsers is empty there is nothing to delete
 	if (!isEmpty(lst))
 	{
 		//save reference to first link
-		node *temp = lst->head;
+		nodeUser *temp = lst->head;
 
 		//if only one link
 		if(temp->next == NULL)
@@ -126,13 +133,13 @@ int deleteFirst(list *lst)
 }
 
 //delete link at the last location
-int deleteLast(list *lst)
+int deleteLast(listUsers *lst)
 {
-	//if list is empty there is nothing to delete
+	//if listUsers is empty there is nothing to delete
 	if (!isEmpty(lst))
 	{
 		//save reference to last link
-		node *temp = lst->tail;
+		nodeUser *temp = lst->tail;
 
 		//if only one link
 		if(temp->prev == NULL)
@@ -150,8 +157,8 @@ int deleteLast(list *lst)
 	return 0;
 }
 
-//delete link from list
-int deleteLink(list *lst, node *link)
+//delete link from listUsers
+int deleteLink(listUsers *lst, nodeUser *link)
 {
 	if (!isEmpty(lst))
 	{
@@ -172,7 +179,7 @@ int deleteLink(list *lst, node *link)
 }
 
 //insert a new item after link
-int insertAfter(list *lst, node *item, node *link)
+int insertAfter(listUsers *lst, nodeUser *item, nodeUser *link)
 {
 	if (!isEmpty(lst))
 	{
@@ -193,7 +200,7 @@ int insertAfter(list *lst, node *item, node *link)
 }
 
 //insert a new item before link
-int insertBefore(list *lst, node *item, node *link)
+int insertBefore(listUsers *lst, nodeUser *item, nodeUser *link)
 {
 	if (!isEmpty(lst))
 	{
@@ -212,9 +219,9 @@ int insertBefore(list *lst, node *item, node *link)
 	}
 	return 0;
 }
-//Prints all the elements in linked list in forward traversal order
-void Print(list lst) {
-	node* temp = lst.head;
+//Prints all the elements in linked listUsers in forward traversal order
+void Print(listUsers lst) {
+	nodeUser* temp = lst.head;
 	printf("\n");
 	while (temp != NULL) {
 		//printf("%5d %30s %30s %10d %30s\n", temp->data.id, temp->data.artistName, temp->data.albumName, temp->data.trackNo, temp->data.trackName);

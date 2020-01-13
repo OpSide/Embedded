@@ -1,19 +1,31 @@
-﻿  main.c
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(45,33): warning C4013: 'malloc' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(53,14): warning C4013: 'LogIn' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(60,18): warning C4047: 'function': 'int' differs in levels of indirection from 'user *'
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(60,18): warning C4024: 'menu': different types for formal and actual parameter 1
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(62,6): warning C4013: 'free' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(64,8): warning C4013: 'system' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(41,7): warning C4101: 'username': unreferenced local variable
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(40,18): warning C4101: 'year': unreferenced local variable
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(40,11): warning C4101: 'month': unreferenced local variable
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(40,6): warning C4101: 'day': unreferenced local variable
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(40,31): warning C4101: 'mins': unreferenced local variable
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(42,7): warning C4101: 'password': unreferenced local variable
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(43,8): warning C4101: 'temp': unreferenced local variable
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(40,24): warning C4101: 'hours': unreferenced local variable
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(123,12): warning C4013: 'strstr' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(123,45): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(123,86): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
+﻿  doubly_list.c
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\doubly_list.c(225,8): warning C4013: 'printf' undefined; assuming extern returning int
+  main.c
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(47,43): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(55,14): warning C4013: 'LogIn' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(64,6): warning C4013: 'free' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(66,8): warning C4013: 'system' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(43,7): warning C4101: 'username': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(42,18): warning C4101: 'year': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(42,11): warning C4101: 'month': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(42,6): warning C4101: 'day': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(42,31): warning C4101: 'mins': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(44,7): warning C4101: 'password': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(45,8): warning C4101: 'temp': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(42,24): warning C4101: 'hours': unreferenced local variable
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(124,12): warning C4013: 'strstr' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(124,45): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(124,86): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
+  users.c
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(29,7): warning C4013: 'Print' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(31,10): warning C4098: 'ReadUsers': 'void' function returning a value
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(47,26): warning C4013: 'strlen' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(72,19): warning C4013: 'strstr' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(75,15): warning C4013: 'strncmp' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(90,12): warning C4013: 'memmove' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(72,1): warning C4047: 'initializing': 'char *' differs in levels of indirection from 'int'
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(120,9): warning C4013: 'strncpy' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(128,32): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\users.c(146,8): warning C4013: 'free' undefined; assuming extern returning int
+  Generating Code...
   business.vcxproj -> C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\Debug\business.exe

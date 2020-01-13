@@ -2,4 +2,3 @@ username        password        fullname         L
 admin           admin           System Manager   3
 barak           Aa123456        barak pahima    3
 barak           6292            bsssd           3
-Noys            ga2             Noy Cohen       2

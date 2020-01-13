@@ -6,39 +6,48 @@ typedef struct user
 	int level;
 }user;
 
-typedef struct node 
+typedef struct ticket
+{
+	int carNumber;
+	int status;
+	char color[16];
+	char model[16];
+	char date[15];
+}ticket;
+
+typedef struct nodeUser 
 {
     user data;	
-   struct node *next;
-   struct node *prev;
-}node;
+   struct nodeUser *next;
+   struct nodeUser *prev;
+}nodeUser;
 
-typedef struct list
+typedef struct listUsers
 {
-	node *head;
-	node *tail;
-}list;
+	nodeUser *head;
+	nodeUser *tail;
+}listUsers;
 
-void initList(list *lst);
+void initList(listUsers *lst);
 
-int isEmpty(list *lst);
+int isEmpty(listUsers *lst);
 
-int length(list *lst);
+int length(listUsers *lst);
 
-node* allocItem(user value);
+nodeUser* allocItemUser(user value);
 
-node* getLinkByIndex(list *lst, int idx);
+nodeUser* getLinkByIndex(listUsers *lst, int idx);
 
-int insertFirst(list *lst, node *item);
+int insertFirst(listUsers *lst, nodeUser *item);
 
-int insertLast(list *lst, node *item);
+int insertLast(listUsers *lst, nodeUser *item);
 
-int deleteFirst(list *lst);
+int deleteFirst(listUsers *lst);
 
-int deleteLast(list *lst);
+int deleteLast(listUsers *lst);
 
-int deleteLink(list *lst, node *link);
+int deleteLink(listUsers *lst, nodeUser *link);
 
-int insertAfter(list *lst, node *item, node *link);
+int insertAfter(listUsers *lst, nodeUser *item, nodeUser *link);
 
-int insertBefore(list *lst, node *item, node *link);
+int insertBefore(listUsers *lst, nodeUser *item, nodeUser *link);

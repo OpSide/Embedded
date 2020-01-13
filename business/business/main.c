@@ -11,7 +11,7 @@ char* fp_path;
 * This is the path where the users are located.
 ***/
 
-#define ITEMS_PATH "items.txt"
+#define TICKETS_PATH "tickets.txt"
 /***
 * This is the path where the item file is located.
 ***/
@@ -22,9 +22,11 @@ char* fp_path;
 * Open this file and append new records into it.
 ***/
 
-void readUsers(char* path, list* lst);
-void AddUser(char* path, list* lst);
-void menu(int level, list* tickets, list* users);
+void ReadUsers(char* path, listUsers* lst);
+void DeleteUser(char* path, listUsers* lst);
+void AddUser(char* path, listUsers* lst);
+void menu(int level, listUsers* tickets);
+
 /***
 * Handle function: get's the path of the users file, and print all users information.
 * You may change it according to your needs.
@@ -42,13 +44,13 @@ void main() {
 	char password[15];
 	char* temp;
 
-	list* usersList = (list*)malloc(sizeof(list));
-	list* ticketsList = (list*)malloc(sizeof(list));
+	listUsers* usersList = (listUsers*)malloc(sizeof(listUsers));
+	//list* ticketsList = (list*)malloc(sizeof(list));
 	user* currentUser = (user*)malloc(sizeof(user));
 
 	initList(usersList);
-	initList(ticketsList);
-	readUsers(USERS_PATH, usersList);
+	//initList(ticketsList);
+	ReadUsers(USERS_PATH, usersList);
 
 	while (LogIn(usersList, currentUser) != 1);
 	//AddUser(USERS_PATH, lst);
@@ -56,13 +58,12 @@ void main() {
 	//getDateTime(&day, &month, &year, &hours, &mins);
 	//printf("Current computer time: %02d/%02d/%d, %02d:%02d\n", day, month, year, hours, mins);
 		/* Display Menu */
-	
-	menu(currentUser, ticketsList, usersList);
+	//DeleteUser(USERS_PATH, usersList);
+	//menu(currentUser, ticketsList, usersList);
 
 	free(usersList);
-	free(ticketsList);
+	//free(ticketsList);
 	system("pause");
-	
 }
 
 void removeSpaces(char* str)
@@ -94,11 +95,11 @@ void getDateTime(int* day, int* month, int* year, int* hours, int* mins)
 	*mins = timeinfo.tm_min;
 }
 
-int LogIn(list *lst, user* currentUser)
+int LogIn(listUsers *lst, user* currentUser)
 {
 	char username[15];
 	char password[15];
-	struct node* tempNode;
+	struct nodeUser* tempNode;
 	const ARRAY_SIZE = 15;
 	tempNode = lst->head;
 
@@ -130,7 +131,7 @@ int LogIn(list *lst, user* currentUser)
 	return 0;
 }
 
-void menu(int level, list* tickets, list* users)
+void menu(int level, listUsers* tickets)
 {
 	int menu_option, action; //MENU_OPTION - gets from client the selected menu number. ACTION - gets from the client the selected operation in selcted menu number.
 
