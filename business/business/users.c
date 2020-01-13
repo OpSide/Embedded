@@ -3,6 +3,7 @@
 #include <time.h>
 #include "doubly_list.h"
 
+// Read user function
 void readUsers(char* path,list* lst)
 {
 	FILE* fp;
@@ -30,6 +31,7 @@ void readUsers(char* path,list* lst)
 	return 1;
 }
 
+// Add user function
 void AddUser(char *fp_path, list* lst)
 {
 	user tempUser;
@@ -59,6 +61,7 @@ void AddUser(char *fp_path, list* lst)
 	fclose(fp);
 }
 
+// Delete user function
 //void DeleteUser()
 //{
 //	char tempSongId[5];
