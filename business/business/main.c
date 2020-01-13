@@ -51,7 +51,7 @@ void main() {
 	initList(ticketsList);
 	readUsers(USERS_PATH, usersList);
 
-	while (LogIn(usersLi;st, currentUser) != 1);
+	while (LogIn(usersList, currentUser) != 1);
 	//AddUser(USERS_PATH, lst);
 	printf("Welcome to CAR SYSTEM! %s!\n", currentUser->fullName);
 	//getDateTime(&day, &month, &year, &hours, &mins);
