@@ -62,7 +62,7 @@ void main() {
 		{
 			printf("\n //////////CAR SYSTEM MENU////////////\n");
 			printf("\n *  [1] Search cars	               *\n");
-			printf("\n *  [2] Edit cars   	               *\n");
+			printf("\n *  [2] Edit car ticket              *\n");
 			printf("\n *  [3] Edit users			       *\n");
 			printf("\n *  [4] Print reports			       *\n");
 			printf("\n *  [5] Exit                         *\n");
