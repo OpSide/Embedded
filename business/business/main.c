@@ -137,143 +137,147 @@ void menu(int level, listUsers* tickets)
 
 	while (1) {
 		// MENU FOR client
-		{
+		{ 
 			printf("\n //////////CAR SYSTEM MENU////////////\n");
 			printf("\n *  [1] Search car ticket	           *\n");
-			printf("\n *  [2] Add car ticket              *\n");
-			
-			printf("\n *  [3] Edit car ticket		      *\n");
-			printf("\n *  [4] Delete car ticket			  *\n");
-
-			printf("\n *  [5] User menu			       *\n");
-
+			printf("\n *  [2] Add car ticket               *\n");
+			if (level>1){
+			printf("\n *  [3] Edit car ticket		       *\n");
+			printf("\n *  [4] Delete car ticket			   *\n");
+			}
+			else if (level==3){
+			printf("\n *  [5] Admin area			       *\n");
+			}
 			printf("\n Please select your action [1-5]. to exit press [5]:");
 			scanf("%d", &menu_option);
 		}
 
 		switch (menu_option) {
 
-			//Search cars
+		//Search cars (Menu option)
 		case 1: {
-			printf("choose searching by CAR NUMBER [1] or STATUS [2] or DATE [3]. to Exit press 0.\n");
+			printf("choose searching by CAR NUMBER [1] or STATUS [2] or BOTH [3] or DATE [4]. to Exit press 0.\n");
+			printf("enter your option: ");
 			scanf("%d", &action);
-			// Invalid input from client
-			if (action > 3) {
-				printf("ERROR: Invalid action.\n action must be between [0] to [3]. Enter vaild action!\n");
-				scanf("%d", &action);
-			}
 			// Check for chosen action (search car menu option)
 			switch (action)
 			{
-				// Go back to main menu
+		    // Go back to main menu
 			case 0: {
+				printf("Bye Bye...\n");
 				break;
 			}
-				  // Search CAR
+			// Search CAR
 			case 1: {
 				printf("Enter CAR number: ");
 				break;
 			}
-				  // Search  STATUS
+			// Search  STATUS
 			case 2: {
 				printf("Enter STATUS: [1] sent to the customer. [0] In the garage: ");
 				break;
 			}
-				  // Search DATE
+			// Search by CAR NUMBER & STATUS
 			case 3: {
+				printf("Enter car number: ");
+				printf("Enter car status:");
+				break;
+			}
+		    // Search DATE
+			case 4: {
 				printf("Enter the date you want to search for: ");
 				break;
 			}
-
+			// Invalid input from client
+			default: {
+				printf("ERROR: Invalid number. Enter vaild number!\n");
+				printf("Re-Enter option:");
+				scanf("%d", &action);
+			}
 			}
 		}
 
-			  //Edit cars
+		//Add car ticket (Menu option)
 		case 2: {
-			printf("Add NEW CAR [1] or Edit EXIST CAR [2] or Delete EXIST CAR [3]. to Exit press 0.\n");
-			scanf("%d", &action);
-			// Check for chosen action (edit car menu option)
-			switch (action)
-			{
-				// Go back to main menu
-			case 0: {
-				break;
-			}
-				  // Add car
-			case 1: {
-				printf("Add new car to the database:");
-				break;
-			}
-				  // Edit exist car
-			case 2: {
-				printf("Edit exist car from database:");
-				break;
-			}
-				  // Delete exist car
-			case 3: {
-				printf("Delete exist car from database: ");
-				break;
-			}
-			}
-
+			printf("add new car ticket to the system");
 		}
-			  // Edit users
+		// Edit Car tickets function (Menu option)
 		case 3: {
-			printf("Add NEW USER [1] or Edit EXIST USER [2] or Delete EXIST USER [3]. To Exit press [0]\n");
-			scanf("%d", &action);
-			//Check for chosen action (edit user menu option)
-			switch (action)
-			{
-				// Go back to main menu
-			case 0: {
-				break;
+			if (level>1){
+				printf("Edit exist TICKET");
 			}
-				  // Add user
-			case 1: {
-				printf("Add new user to the database:");
-				break;
-			}
-				  // Edit exist user & including permissions
-			case 2: {
-				printf("Edit exist user from database:");
-				break;
-			}
-				  // Delete exist user
-			case 3: {
-				printf("Delete exist car user database: ");
-				break;
-			}
-			}
-
-			// Print reports
+			else {
+				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
+				return 1;
+				}
+		}
+		// Delete Ticket (Menu option)
 		case 4: {
+			if (level>1){
 			printf("print USERS [1] or print CAR DB [2] or print LOGS[3]. To Exit press [0]\n");
 			scanf("%d", &action);
-			//Check for chosen action (edit user menu option)
-			switch (action)
-			{
-				// Go back to main menu
-			case 0: {
-				break;
 			}
-				  // print users
-			case 1: {
-				printf("[USERS] We are preparing the printing...");
-				break;
-			}
-				  // print Cars DB
-			case 2: {
-				printf("[CARS DataBase] We are preparing the printing...");
-				break;
-			}
-				  // print logs
-			case 3: {
-				printf("[LOGS] We are preparing the printing... ");
-				break;
+			else {
+			printf("You dont have PERMISSIONS. Contact with the administrator.\n");
+			return 1;
 			}
 			}
+
 		}
+		//Admin Area ( Menu option)
+		case 5:{
+			if (level==3){
+				printf("Welcome to Admin area! Be careful with your operations.\n");
+				printf("**************************************************\n");
+				printf("[1] Print logs \n");
+				printf("[2] Print users\n");
+				printf("[3] Print Car Database\n");
+				printf("[4] Change user permissions\n");
+				printf("[5] Delete user from databse\n");
+				printf(" Remmeber: Press 0 to exit\n");
+				printf("**************************************************");
+				printf("**BE CAREFUL**\n");
+				printf("\n");
+				printf("enter your option: ");
+				scanf("%d", &action);
+			switch(action){
+				case 0: {
+					printf("Bye Bye...\n");
+					break;
+				}
+				//print logs function
+				case 1: {
+					printf("Printing logs... Please wait\n");
+				}
+				//print users function
+				case 2: {
+					printf("Printing users... Please wait\n");
+
+				}
+				//print car database function
+				case 3: {
+					printf("Printing car database... Please wait\n");
+				}
+				//change user permission function
+				case 4: {
+					printf("**Your'e in ADMIN MODE**\n");
+				}
+				//delete user function
+				case 5: {
+					printf("**Your'e in ADMIN MODE**\n");
+				}
+				default: {
+					printf(" Bye Bye...\n");
+					return 1;
+				}
+			}
+			}
+			else{
+			printf("You dont have PERMISSIONS. Contact with the administrator.\n");
+			return 1;
+			}
 		}
 		}
 	}
 }
+
