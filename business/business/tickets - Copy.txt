@@ -1,0 +1,2 @@
+carnumber	model	        color	         date           status
+5862038         chevrolet       black		 15/01/2020	0

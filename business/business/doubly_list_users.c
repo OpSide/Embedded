@@ -1,19 +1,19 @@
 #include <stdlib.h>
-#include "doubly_list.h"
+#include "doubly_list_users.h"
 
-void initList(listUsers *lst)
+void initListUsers(listUsers *lst)
 {
 	lst->head = lst->tail = NULL;	
 }
 
 //is listUsers empty
-int isEmpty(listUsers *lst)
+int isEmptyUsers(listUsers *lst)
 {
 	return lst->head == NULL;
 }
 
 //return amount of nodes in the listUsers
-int length(listUsers *lst)
+int lengthUsers(listUsers *lst)
 {
 	int length = 0;
 	nodeUser *current;
@@ -40,7 +40,7 @@ nodeUser* allocItemUser(user data)
 //}
 
 ////return item located in spesific index
-nodeUser* getLinkByIndex(listUsers *lst, int idx)
+nodeUser* getLinkByIndexUsers(listUsers *lst, int idx)
 {
 	int i;
 	//start from the first link
@@ -54,14 +54,14 @@ nodeUser* getLinkByIndex(listUsers *lst, int idx)
 }
 
 //insert item at the first location
-int insertFirst(listUsers *lst, nodeUser *item)
+int insertFirstUsers(listUsers *lst, nodeUser *item)
 {
 	if (item != NULL)
 	{
 		//reset item pointers
 		item->next = item->prev = NULL;
 	
-		if(isEmpty(lst))
+		if(isEmptyUsers(lst))
 		{
 			//make head & tail pointing to item
 			lst->head = lst->tail = item;	
@@ -81,14 +81,14 @@ int insertFirst(listUsers *lst, nodeUser *item)
 }
 
 //insert item at the last location
-int insertLast(listUsers *lst, nodeUser *item)
+int insertLastUsers(listUsers *lst, nodeUser *item)
 {
 	if (item != NULL)
 	{
 		//reset item pointers
 		item->next = item->prev = NULL;
 	
-		if(isEmpty(lst))
+		if(isEmptyUsers(lst))
 		{
 			//make head & tail pointing to item
 			lst->head = lst->tail = item;
@@ -108,10 +108,10 @@ int insertLast(listUsers *lst, nodeUser *item)
 }
 
 //delete first item
-int deleteFirst(listUsers *lst)
+int deleteFirstUsers(listUsers *lst)
 {	
 	//if listUsers is empty there is nothing to delete
-	if (!isEmpty(lst))
+	if (!isEmptyUsers(lst))
 	{
 		//save reference to first link
 		nodeUser *temp = lst->head;
@@ -119,7 +119,7 @@ int deleteFirst(listUsers *lst)
 		//if only one link
 		if(temp->next == NULL)
 		{			
-			initList(lst);
+			initListUsers(lst);
 		}
 		else
 		{
@@ -133,10 +133,10 @@ int deleteFirst(listUsers *lst)
 }
 
 //delete link at the last location
-int deleteLast(listUsers *lst)
+int deleteLastUsers(listUsers *lst)
 {
 	//if listUsers is empty there is nothing to delete
-	if (!isEmpty(lst))
+	if (!isEmptyUsers(lst))
 	{
 		//save reference to last link
 		nodeUser *temp = lst->tail;
@@ -144,7 +144,7 @@ int deleteLast(listUsers *lst)
 		//if only one link
 		if(temp->prev == NULL)
 		{
-			initList(lst);
+			initListUsers(lst);
 		}
 		else
 		{
@@ -158,16 +158,16 @@ int deleteLast(listUsers *lst)
 }
 
 //delete link from listUsers
-int deleteLink(listUsers *lst, nodeUser *link)
+int deleteLinkUsers(listUsers *lst, nodeUser *link)
 {
-	if (!isEmpty(lst))
+	if (!isEmptyUsers(lst))
 	{
 		if (link == NULL)
 			return 0;
 		if (link == lst->head)
-			return deleteFirst(lst);
+			return deleteFirstUsers(lst);
 		if (link == lst->tail)
-			return deleteLast(lst);
+			return deleteLastUsers(lst);
 
 		//bypass the current link
 		link->prev->next = link->next;
@@ -179,14 +179,14 @@ int deleteLink(listUsers *lst, nodeUser *link)
 }
 
 //insert a new item after link
-int insertAfter(listUsers *lst, nodeUser *item, nodeUser *link)
+int insertAfterUsers(listUsers *lst, nodeUser *item, nodeUser *link)
 {
-	if (!isEmpty(lst))
+	if (!isEmptyUsers(lst))
 	{
 		if ((item == NULL) || (link == NULL))
 			return 0;
 		if (link == lst->tail)
-			return insertLast(lst,item);
+			return insertLastUsers(lst,item);
 
 		//assign new item pointers
 		item->prev = link;
@@ -200,14 +200,14 @@ int insertAfter(listUsers *lst, nodeUser *item, nodeUser *link)
 }
 
 //insert a new item before link
-int insertBefore(listUsers *lst, nodeUser *item, nodeUser *link)
+int insertBeforeUsers(listUsers *lst, nodeUser *item, nodeUser *link)
 {
-	if (!isEmpty(lst))
+	if (!isEmptyUsers(lst))
 	{
 		if ((item == NULL) || (link == NULL))
 			return 0;
 		if (link == lst->head)
-			return insertFirst(lst,item);
+			return insertFirstUsers(lst,item);
 
 		//assign new item pointers
 		item->next = link;
@@ -220,7 +220,7 @@ int insertBefore(listUsers *lst, nodeUser *item, nodeUser *link)
 	return 0;
 }
 //Prints all the elements in linked listUsers in forward traversal order
-void Print(listUsers lst) {
+void PrintUsers(listUsers lst) {
 	nodeUser* temp = lst.head;
 	printf("\n");
 	while (temp != NULL) {

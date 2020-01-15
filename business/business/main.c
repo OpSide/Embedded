@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <time.h>
 //#include "doublyLinkedList.h"
-#include "doubly_list.h"
+#include "doubly_list_users.h"
+#include "doubly_list_tickets.h"
 
 char* fp_path;
 
@@ -25,6 +26,12 @@ char* fp_path;
 void ReadUsers(char* path, listUsers* lst);
 void DeleteUser(char* path, listUsers* lst);
 void AddUser(char* path, listUsers* lst);
+
+void ReadTickets(char* path, listTicket* lst);
+void DeleteTicket(char* path, listTicket* lst);
+void AddTickets(char* path, listTicket* lst);
+void UpdateTicket(listTicket* lst);
+
 void menu(user* current, listUsers* tickets);
 
 /***
@@ -45,13 +52,17 @@ void main() {
 	char* temp;
 
 	listUsers* usersList = (listUsers*)malloc(sizeof(listUsers));
-	//list* ticketsList = (list*)malloc(sizeof(list));
+	listTicket* ticketsList = (listTicket*)malloc(sizeof(listTicket));
 	user* currentUser = (user*)malloc(sizeof(user));
+	ticket* currentTicket = (ticket*)malloc(sizeof(ticket));
 
-	initList(usersList);
-	//initList(ticketsList);
+	initListUsers(usersList);
+	initListTickets(ticketsList);
 	ReadUsers(USERS_PATH, usersList);
-
+	ReadTickets(TICKETS_PATH, ticketsList);
+	//UpdateTicket(ticketsList);
+	//AddTickets(TICKETS_PATH, ticketsList);
+	//DeleteTicket(TICKETS_PATH, ticketsList);
 	while (LogIn(usersList, currentUser) != 1);
 	//AddUser(USERS_PATH, lst);
 	printf("Welcome to CAR SYSTEM! %s!\n", currentUser->fullName);

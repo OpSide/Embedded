@@ -24,12 +24,18 @@
     <ClCompile Include="users.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="doubly_list.c">
+    <ClCompile Include="doubly_list_users.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="doubly_list_tickets.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="doubly_list.h">
+    <ClInclude Include="doubly_list_users.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="doubly_list_tickets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -138,13 +138,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="doubly_list.c" />
+    <ClCompile Include="doubly_list_tickets.c" />
+    <ClCompile Include="doubly_list_users.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="tickets.c" />
     <ClCompile Include="users.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="doubly_list.h" />
+    <ClInclude Include="doubly_list_tickets.h" />
+    <ClInclude Include="doubly_list_users.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

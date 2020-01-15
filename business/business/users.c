@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <time.h>
-#include "doubly_list.h"
+#include "doubly_list_users.h"
 #include <sys/stat.h>
 
 // Read user function
@@ -24,9 +24,9 @@ void ReadUsers(char* path,listUsers* lst)
 	while (fscanf(fp, "%15[^\n] %15[^\n] %15[^\n]%1d\n", tempUser.userName, tempUser.password, tempUser.fullName, &tempUser.level) > 0)
 	{
 		nodeUser* tempNode = allocItemUser(tempUser);
-		insertLast(lst, tempNode);
+		insertLastUsers(lst, tempNode);
 	}
-	Print(*lst);
+	PrintUsers(*lst);
 	fclose(fp);
 	return 1;
 }
@@ -56,7 +56,7 @@ void AddUser(char *fp_path, listUsers* lst)
 
 	nodeUser* tempNode = allocItemUser(tempUser);
 	fprintf(fp, "%-15s %-15s %-15s %-1d\n", tempUser.userName, tempUser.password, tempUser.fullName, tempUser.level);
-	insertLast(lst, tempNode);
+	insertLastUsers(lst, tempNode);
 	printf("New user added!\n");
 	fclose(fp);
 }
@@ -156,7 +156,7 @@ void DeleteUser(char* fp_path, listUsers* lst)
 	{
 		if (tempNode->data.userName == userName)
 		{
-			deleteLink(lst, tempNode);
+			deleteLinkUsers(lst, tempNode);
 			break;
 		}
 		tempNode = tempNode->next;
