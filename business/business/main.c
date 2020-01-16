@@ -290,7 +290,7 @@ void menu(user* current, listUsers* tickets)
 				printf("[4]		Change user permissions	  *^\n");
 				printf("[5]		Delete user from databse  *^\n");
 				printf("To exit to main menu press [0]. Remmber you are in Admin Mode.")
-				printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+				printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
 				printf("\n \n");
 				printf("Enter your option:");
 				scanf("%d", &action);
