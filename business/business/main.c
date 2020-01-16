@@ -1,10 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
 //#include "doublyLinkedList.h"
 #include "doubly_list_users.h"
 #include "doubly_list_tickets.h"
-#include <stdlib.h>
+
 char* fp_path;
 
 #define USERS_PATH "users.txt"
@@ -119,13 +120,13 @@ int LogIn(listUsers *lst, user* currentUser)
 	const ARRAY_SIZE = 15;
 	tempNode = lst->head;
 
-	printf("Log-in to your account:");
+	printf("Log-in to your account\n");
 	printf("Enter Username: ");
 	scanf("%s", &username);
 
 	printf("Enter password: ");
 	scanf("%s", &password);
-
+	system("cls"); //clear screen
 
 		char* tempUsername = (char*)malloc(sizeof(char) * ARRAY_SIZE);
 		char* tempPassword = (char*)malloc(sizeof(char) * ARRAY_SIZE);
@@ -179,28 +180,38 @@ void menu(user* current, listUsers* tickets)
 			{
 				// Go back to main menu
 				case 0: {
-					printf("*MSG: Exit to menu.\n");
+					printf("*MESSAGE: Exit to menu.\n");
+					delay (5); // time to see the message
+					system("cls"); // clear screen
 					break;
 				}
 				// Search CAR
 				case 1: {
-					printf("*MSG: You selected option number [1]\n");
+					printf("*MESSAGE: You selected option number [1]\n");
+					delay (5); // time to see the message
+					system("cls"); // clear screen
 					break;
 				}
 				// Search  STATUS
 				case 2: {
-					printf("*MSG: You selected option number [2]\n");
+					printf("*MESSAGE: You selected option number [2]\n");
+					delay (5); // time to see the message
+					system("cls"); // clear screen
 					printf("Enter STATUS: [1] present sent to the customer. [0] present In the garage:");
 					break;
 				}
 				// Search by CAR NUMBER & STATUS
 				case 3: {
-					printf("*MSG: You selected option number [3]\n");
+					printf("*MESSAGE: You selected option number [3]\n");
+					delay (5); // time to see the message
+					system("cls"); // clear screen
 					break;
 				}
 				// Search DATE
 				case 4: {
-					printf("*MSG: You selcted option number [4]\n");
+					printf("*MESSAGE: You selcted option number [4]\n");
+					delay (5); // time to see the message
+					system("cls"); // clear screen
 					break;
 				}
 				// Invalid input from client
@@ -208,6 +219,8 @@ void menu(user* current, listUsers* tickets)
 					printf("ERROR: Invalid number. Enter vaild number!\n");
 					printf("Re-Enter option:");
 					scanf("%d", &action);
+					delay (5); // time to see the message
+					system("cls"); // clear screen
 					break;
 				}
 			}
@@ -238,6 +251,8 @@ void menu(user* current, listUsers* tickets)
 				}
 				else {
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
+				delay (5); // time to see the message
+				system("cls"); // clear screen
 				return 1;
 				}
 			break;
@@ -263,31 +278,57 @@ void menu(user* current, listUsers* tickets)
 			switch(action){
 				case 0: {
 					printf("\n========================================================================================\n");
-					printf("*MSG: Exit to menu.\n");
+					printf("*MESSAGE: Exit to menu.\n");
+					delay (5); // time to see the message
+					system("cls"); // clear screen
 					break;
 				}
 				//print logs function
 				case 1: {
 					printf("\n========================================================================================\n");
-					printf("Printing logs... Please wait\n");
+					printf("Printing logs... Please wait");
+					delay (1); // time to see the message
+					printf(".");
+					delay (1); // time to see the message
+					printf(".\n");
+					delay (3);
+					system("cls"); // clear screen
 					break;
 				}
 				//print users function
 				case 2: {
 					printf("\n========================================================================================\n");
-					printf("Printing users... Please wait\n");
+					printf("Printing users... Please wait");
+					delay (1); // time to see the message
+					printf(".");
+					delay (1); // time to see the message
+					printf(".\n");
+					delay (3);
+					system("cls"); // clear screen
 					break;
 				}
 				//print car database function
 				case 3: {
 					printf("\n========================================================================================\n");
-					printf("Printing car database... Please wait\n");
+					printf("Printing car database... Please wait");
+					delay (1); // time to see the message
+					printf(".");
+					delay (1); // time to see the message
+					printf(".\n");
+					delay (3);
+					system("cls"); // clear screen
 					break;
 				}
 				//change user permission function
 				case 4: {
 					printf("\n========================================================================================\n");
-					printf("Change user premission function\n");
+					printf("Change user premission function");
+					delay (1); // time to see the message
+					printf(".");
+					delay (1); // time to see the message
+					printf(".\n");
+					delay (3);
+					system("cls"); // clear screen
 					break;
 				}
 				//delete user function
@@ -305,8 +346,10 @@ void menu(user* current, listUsers* tickets)
 			}
 			}
 			else{
-			printf("You dont have PERMISSIONS. Contact with the administrator.\n");
-			return 1;
+				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
+				delay (5); // time to see the message
+				system("cls"); // clear screen
+				return 1;
 			}
 		}
 		}
