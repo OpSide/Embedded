@@ -5,57 +5,82 @@
 #include <sys/stat.h>
 
 #define TICKETS_PATH "tickets.txt"
-void Search(listTicket* lst, char* path,int searchOption,char* operand)
+void Search(listTicket* lst, char* path, char* ops)
 {
 	FILE* fp;
 	nodeTickets* nodeTicket;
 	nodeTickets* tempNode = NULL;
-
+	int status, userPrice;
+	int searchOption = ops[0] - '0';
 	nodeTicket = lst->head;
 	char userInput[16], userInput2[16], temp[100];
 	char tempString[16], tempString2[16];
+
 	switch (searchOption)
 	{
 		case 1:
 		{
+			if (ops[1] == 1)
+			{
 			printf("Enter car number: ");
-			fgets(tempString, 15, stdin);
-			tempString[strlen(tempString) - 1] = '\0';
+			fgets(userInput, 15, stdin);
+			userInput[strlen(userInput) - 1] = '\0';
+			strncpy(tempString, nodeTicket->data.carNumber);
+			}
+			else if (ops[1] == 2)
+			{
 			printf("Enter model: ");
-			fgets(tempString2, 15, stdin);
+			fgets(userInput, 15, stdin);
 			tempString[strlen(tempString) - 1] = '\0';
+			strncpy(tempString, nodeTicket->data.carNumber);
+			}
+			else if (ops[1] == 3)
+			{
+			printf("Enter car number: ");
+			fgets(userInput, 15, stdin);
+			userInput[strlen(userInput) - 1] = '\0';
+			printf("Enter model: ");
+			fgets(userInput2, 15, stdin);
+			userInput2[strlen(userInput2) - 1] = '\0';
 
 			strncpy(tempString, nodeTicket->data.carNumber);
 			strncpy(tempString2, nodeTicket->data.color);
+			}
+			else
+			{
+				printf("Wrong input");
+			}
+			break;
 		}
 		case 2:
 		{
-			printf("Enter price: ");
-			fgets(tempString, 15, stdin);
-			tempString[strlen(tempString) - 1] = '\0';
+			printf("Enter price to search: ");
+			fgets(userInput, 15, stdin);
+			userInput[strlen(userInput) - 1] = '\0';
 
-			strncpy(tempString, nodeTicket->data.carNumber);
+			itoa(tempNode->data.price,tempString,10);
+			break;
 		}
 		case 3:
 		{
 			printf("Enter car status: ");
-			fgets(tempString, 15, stdin);
-			tempString[strlen(tempString) - 1] = '\0';
+			fgets(userInput2, 15, stdin);
+			userInput2[strlen(userInput2) - 1] = '\0';
 
 			strncpy(tempString, nodeTicket->data.carNumber);
+			break;
 		}
 		case 4:
 		{
 			printf("Enter date: ");
-			fgets(tempString, 15, stdin);
-			tempString[strlen(tempString) - 1] = '\0';
+			fgets(userInput2, 15, stdin);
+			userInput2[strlen(userInput2) - 1] = '\0';
 
 
 			strncpy(tempString, nodeTicket->data.carNumber);
+			break;
 		}
 	}
-	printf("\nEnter car number.  \nCar number: ");
-	scanf("%s", userInput);
 
 	fopen_s(&fp, path, "r");
 	if (!fp)
@@ -69,7 +94,7 @@ void Search(listTicket* lst, char* path,int searchOption,char* operand)
 
 	while (nodeTicket != NULL)
 	{
-		if (atoi(userInput) == nodeTicket->data.carNumber)
+		if (atoi(userInput) == tempString)
 		{
 			tempNode = nodeTicket;
 			printf("%-7d         %-15s %-15s %-15s %-1d\n", nodeTicket->data.carNumber, nodeTicket->data.model, nodeTicket->data.color, nodeTicket->data.date, nodeTicket->data.status);

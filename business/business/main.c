@@ -31,7 +31,7 @@ void ReadTickets(char* path, listTicket* lst);
 void DeleteTicket(char* path, listTicket* lst);
 void AddTickets(char* path, listTicket* lst);
 void UpdateTicket(listTicket* lst);
-void Search(listTicket* lst, char* path);
+void Search(listTicket* lst, char* path, char* ops);
 
 
 void menu(user* current, listUsers* tickets);
@@ -62,7 +62,9 @@ void main() {
 	initListTickets(ticketsList);
 	ReadUsers(USERS_PATH, usersList);
 	ReadTickets(TICKETS_PATH, ticketsList);
-	//Search(ticketsList, TICKETS_PATH);
+
+	char options[3] = { '2',NULL,'2' }; // first: search property, second: both strings, thrid: operand
+	Search(ticketsList, TICKETS_PATH, options);
 	//UpdateTicket(ticketsList);
 	//AddTickets(TICKETS_PATH, ticketsList);
 	//DeleteTicket(TICKETS_PATH, ticketsList);
