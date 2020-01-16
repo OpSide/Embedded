@@ -145,8 +145,10 @@
     <ClCompile Include="users.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="conio.h" />
     <ClInclude Include="doubly_list_tickets.h" />
     <ClInclude Include="doubly_list_users.h" />
+    <ClInclude Include="_mingw.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

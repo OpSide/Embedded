@@ -82,31 +82,41 @@ void Search(listTicket* lst, char* path, char* ops)
 		}
 	}
 
-	fopen_s(&fp, path, "r");
-	if (!fp)
-	{
-		printf("\n\nFile not found!\n");
-		return;
-	}
-
-	fgets(temp, 100, fp);
-	printf("%s", temp);
-
-	while (nodeTicket != NULL)
-	{
-		if (atoi(userInput) == tempString)
-		{
-			tempNode = nodeTicket;
-			printf("%-7d         %-15s %-15s %-15s %-1d\n", nodeTicket->data.carNumber, nodeTicket->data.model, nodeTicket->data.color, nodeTicket->data.date, nodeTicket->data.status);
-		}
-		nodeTicket = nodeTicket->next;
-	}
-	if (tempNode == NULL)
-	{
-		printf("Car not found in DB\n");
-	}
-	fclose(fp);
 }
+
+void SearchByTwoFields(listTicket* lst)
+{
+	
+	char str1[16], str2[16];
+	nodeTickets* tempNode;
+
+	printf("Enter model: ");
+	fgets(str2, 15, stdin);
+	str2[strlen(str2) - 1] = '\0';
+	printf("Enter color: ");
+	fgets(str1, 15, stdin);
+	str1[strlen(str1) - 1] = '\0';
+
+	tempNode = lst->head;
+	if (tempNode == NULL) return;
+
+	removeSpaces(&tempNode->data.color);	
+	removeSpaces(&tempNode->data.model);
+	while (tempNode != NULL)
+	{
+		if (strncmp(&tempNode->data.color, str1) == 1 && strncmp(tempNode->data.model , str2) == 1)
+		{
+			printf("Car found!\n");
+			printf("%-15s%-15s%-15s%-15s%-15s%-15s\n", "carnumber", "model", "color", "date", "price", "status");
+			printf("%-7d        %-15s%-15s%-15s%-4d           %-1d\n", tempNode->data.carNumber, tempNode->data.model, tempNode->data.color, tempNode->data.date, tempNode->data.price, tempNode->data.status);
+			break;
+		}
+
+		tempNode = tempNode->next;
+	}
+}
+
+
 void saveTicketsToFile(listTicket* lst ,char* path)
 {
 	FILE* fp;

@@ -5,6 +5,7 @@
 #include "doubly_list_users.h"
 #include "doubly_list_tickets.h"
 #include <stdlib.h>
+
 char* fp_path;
 
 #define USERS_PATH "users.txt"
@@ -31,9 +32,9 @@ void ReadTickets(char* path, listTicket* lst);
 void DeleteTicket(char* path, listTicket* lst);
 void AddTickets(char* path, listTicket* lst);
 void UpdateTicket(listTicket* lst);
-void Search(listTicket* lst, char* path, char* ops);
-
-
+void Search(listTicket* lst);
+void SearchByTwoFields(listTicket* lst);
+void func();
 void menu(user* current, listUsers* tickets);
 
 /***
@@ -62,9 +63,8 @@ void main() {
 	initListTickets(ticketsList);
 	ReadUsers(USERS_PATH, usersList);
 	ReadTickets(TICKETS_PATH, ticketsList);
-
-	char options[3] = { '2',NULL,'2' }; // first: search property, second: both strings, thrid: operand
-	Search(ticketsList, TICKETS_PATH, options);
+	//SearchByTwoFields(ticketsList);
+	//system("cls");
 	//UpdateTicket(ticketsList);
 	//AddTickets(TICKETS_PATH, ticketsList);
 	//DeleteTicket(TICKETS_PATH, ticketsList);
@@ -255,7 +255,7 @@ void menu(user* current, listUsers* tickets)
 				printf("[3]		Print Car Database												^\n");
 				printf("[4]		Change user permissions											^\n");
 				printf("[5]		Delete user from databse										^\n");
-				printf("To exit to main menu press [0]. Remmber you are in Admin Mode.")
+				printf("To exit to main menu press [0]. Remmber you are in Admin Mode.");
 				printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
 				printf("\n \n");
 				printf("Enter your option:");
