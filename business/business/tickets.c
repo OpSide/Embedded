@@ -5,7 +5,83 @@
 #include <sys/stat.h>
 
 #define TICKETS_PATH "tickets.txt"
+void Search(listTicket* lst, char* path,int searchOption,char* operand)
+{
+	FILE* fp;
+	nodeTickets* nodeTicket;
+	nodeTickets* tempNode = NULL;
 
+	nodeTicket = lst->head;
+	char userInput[16], userInput2[16], temp[100];
+	char tempString[16], tempString2[16];
+	switch (searchOption)
+	{
+		case 1:
+		{
+			printf("Enter car number: ");
+			fgets(tempString, 15, stdin);
+			tempString[strlen(tempString) - 1] = '\0';
+			printf("Enter model: ");
+			fgets(tempString2, 15, stdin);
+			tempString[strlen(tempString) - 1] = '\0';
+
+			strncpy(tempString, nodeTicket->data.carNumber);
+			strncpy(tempString2, nodeTicket->data.color);
+		}
+		case 2:
+		{
+			printf("Enter price: ");
+			fgets(tempString, 15, stdin);
+			tempString[strlen(tempString) - 1] = '\0';
+
+			strncpy(tempString, nodeTicket->data.carNumber);
+		}
+		case 3:
+		{
+			printf("Enter car status: ");
+			fgets(tempString, 15, stdin);
+			tempString[strlen(tempString) - 1] = '\0';
+
+			strncpy(tempString, nodeTicket->data.carNumber);
+		}
+		case 4:
+		{
+			printf("Enter date: ");
+			fgets(tempString, 15, stdin);
+			tempString[strlen(tempString) - 1] = '\0';
+
+
+			strncpy(tempString, nodeTicket->data.carNumber);
+		}
+	}
+	printf("\nEnter car number.  \nCar number: ");
+	scanf("%s", userInput);
+
+	fopen_s(&fp, path, "r");
+	if (!fp)
+	{
+		printf("\n\nFile not found!\n");
+		return;
+	}
+
+	fgets(temp, 100, fp);
+	printf("%s", temp);
+
+	while (nodeTicket != NULL)
+	{
+		if (atoi(userInput) == nodeTicket->data.carNumber)
+		{
+			tempNode = nodeTicket;
+			printf("%-7d         %-15s %-15s %-15s %-1d\n", nodeTicket->data.carNumber, nodeTicket->data.model, nodeTicket->data.color, nodeTicket->data.date, nodeTicket->data.status);
+		}
+		nodeTicket = nodeTicket->next;
+	}
+	if (tempNode == NULL)
+	{
+		printf("Car not found in DB\n");
+	}
+	fclose(fp);
+}
 void saveTicketsToFile(listTicket* lst ,char* path)
 {
 	FILE* fp;
@@ -13,10 +89,10 @@ void saveTicketsToFile(listTicket* lst ,char* path)
 	fopen_s(&fp, path, "w"); //Erase old data
 
 	nodeTickets* current = lst->head;
-	fprintf_s(fp, "%-15s%-15s%-15s%-15s%-15s\n", "carnumber", "model", "color", "date", "status");
+	fprintf_s(fp, "%-15s%-15s%-15s%-15s%-15s%-15s\n", "carnumber", "model", "color", "date","price", "status");
 	for (current; current != NULL; current = current->next)
 	{
-		fprintf_s(fp, "%-7d        %-15s %-15s %-15s %-1d\n", current->data.carNumber, current->data.model, current->data.color, current->data.date, current->data.status);
+		fprintf_s(fp, "%-7d        %-15s%-15s%-15s%-4d           %-1d\n", current->data.carNumber, current->data.model, current->data.color, current->data.date,current->data.price, current->data.status);
 	}
 
 	fclose(fp);
@@ -54,6 +130,8 @@ void UpdateTicket(listTicket* lst) {
 		scanf("%d", &tempNode->data.carNumber);
 		printf("Enter status: ");
 		scanf("%d", &tempNode->data.status);
+		printf("Enter price: ");
+		scanf("%d", &tempNode->data.price);
 		getchar();
 		printf("Enter model ");
 		fgets(tempNode->data.model, 15, stdin);
@@ -84,7 +162,7 @@ void ReadTickets(char* path, listTicket* lst)
 	fgets(temp, 100, fp);
 	puts(temp);
 	ticket tempTicket;
-	while (fscanf(fp, "%7d %15[^\n] %15[^\n] %15[^\n]%1d\n", &tempTicket.carNumber, tempTicket.model, tempTicket.color,  tempTicket.date ,&tempTicket.status) > 0)
+	while (fscanf(fp, "%7d %15[^\n] %15[^\n] %15[^\n]%15d%1d\n", &tempTicket.carNumber, tempTicket.model, tempTicket.color,  tempTicket.date,&tempTicket.price ,&tempTicket.status) > 0)
 	{
 		nodeTickets* tempNode = allocItemTickets(tempTicket);
 		insertLastTickets(lst, tempNode);
@@ -109,6 +187,8 @@ void AddTickets(char* fp_path, listTicket* lst)
 	scanf("%d", &tempTicket.carNumber);
 	printf("Enter status: ");
 	scanf("%d", &tempTicket.status);
+	printf("Enter price: ");
+	scanf("%d", &tempTicket.price);
 	getchar();
 	printf("Enter model ");
 	fgets(tempTicket.model, 15, stdin);
@@ -121,7 +201,7 @@ void AddTickets(char* fp_path, listTicket* lst)
 	tempTicket.date[strlen(tempTicket.date) - 1] = '\0';
 
 	nodeTickets* tempNode = allocItemTickets(tempTicket);
-	fprintf(fp, "%-7d         %-15s %-15s %-15s %-1d\n", tempTicket.carNumber, tempTicket.model, tempTicket.color, tempTicket.date, tempTicket.status);
+	fprintf(fp, "%-7d        %-15s%-15s%-15s%-4d           %-1d\n", tempTicket.carNumber, tempTicket.model, tempTicket.color, tempTicket.date,tempTicket.price, tempTicket.status);
 	insertLastTickets(lst, tempNode);
 	printf("New ticket added!\n");
 	fclose(fp);

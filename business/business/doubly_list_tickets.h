@@ -3,6 +3,7 @@ typedef struct ticket
 {
 	int carNumber;
 	int status;
+	int price;
 	char color[16];
 	char model[16];
 	char date[16];

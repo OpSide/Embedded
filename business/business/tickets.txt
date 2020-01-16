@@ -1,2 +1,2 @@
-carnumber       model           color           date            status         
-1234455        chevrolet       black           15/01/2020      1
+carnumber      model          color          date           price          status         
+8877755        rio            black          19/01/2020     1100           0
