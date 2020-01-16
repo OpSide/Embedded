@@ -38,5 +38,11 @@
     <ClInclude Include="doubly_list_tickets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="conio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_mingw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
