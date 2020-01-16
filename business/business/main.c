@@ -4,9 +4,7 @@
 //#include "doublyLinkedList.h"
 #include "doubly_list_users.h"
 #include "doubly_list_tickets.h"
-#include <conio.h>
-#include "conio.h"
-
+#include <stdlib.h>
 char* fp_path;
 
 #define USERS_PATH "users.txt"
