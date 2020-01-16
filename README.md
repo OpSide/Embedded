@@ -1,2 +1,3 @@
-# Embedded
-Final project for Embedded lab
+# Garage Final Project
+
+### User Manual
