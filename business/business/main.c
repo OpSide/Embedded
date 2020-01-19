@@ -6,6 +6,7 @@
 #include "doubly_list_users.h"
 #include "doubly_list_tickets.h"
 #include <stdlib.h>
+
 char* fp_path;
 
 #define USERS_PATH "users.txt"
@@ -41,6 +42,18 @@ void menu(user* current, listUsers* tickets);
 * Handle function: get's the path of the users file, and print all users information.
 * You may change it according to your needs.
 ***/
+
+void delay(int number_of_seconds)
+{
+	// Converting time into milli_seconds 
+	int milli_seconds = 1000 * number_of_seconds;
+
+	// Storing start time 
+	clock_t start_time = clock();
+
+	// looping till required time is not achieved 
+	while (clock() < start_time + milli_seconds);
+}
 
 void getDateTime(int* day, int* month, int* year, int* hours, int* mins);
 /***
