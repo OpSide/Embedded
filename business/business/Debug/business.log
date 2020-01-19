@@ -1,5 +1,6 @@
 ﻿  main.c
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(84,14): warning C4013: 'LogIn' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(85,14): warning C4013: 'LogIn' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(80,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
 C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(66,7): warning C4101: 'username': unreferenced local variable
 C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(65,18): warning C4101: 'year': unreferenced local variable
 C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(65,11): warning C4101: 'month': unreferenced local variable
@@ -8,10 +9,10 @@ C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embe
 C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(67,7): warning C4101: 'password': unreferenced local variable
 C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(68,8): warning C4101: 'temp': unreferenced local variable
 C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(65,24): warning C4101: 'hours': unreferenced local variable
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(153,12): warning C4013: 'strstr' undefined; assuming extern returning int
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(153,45): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(153,86): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(254,13): warning C4098: 'menu': 'void' function returning a value
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(268,13): warning C4098: 'menu': 'void' function returning a value
-C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(364,13): warning C4098: 'menu': 'void' function returning a value
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(165,12): warning C4013: 'strstr' undefined; assuming extern returning int
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(165,45): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(165,86): warning C4047: '!=': 'int' differs in levels of indirection from 'void *'
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(266,13): warning C4098: 'menu': 'void' function returning a value
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(280,13): warning C4098: 'menu': 'void' function returning a value
+C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\business\main.c(380,13): warning C4098: 'menu': 'void' function returning a value
   business.vcxproj -> C:\Users\Barak\Desktop\HIT\Barak\year4\מעבדה מתקדמת בתכנות\Embedded\business\Debug\business.exe
