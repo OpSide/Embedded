@@ -33,9 +33,9 @@ void ReadTickets(char* path, listTicket* lst);
 void DeleteTicket(char* path, listTicket* lst);
 void AddTickets(char* path, listTicket* lst);
 void UpdateTicket(listTicket* lst);
-void Search(listTicket* lst);
-void SearchByTwoFields(listTicket* lst);
-void func();
+void Search(listTicket* lst, char* path, char* ops);
+
+
 void menu(user* current, listUsers* tickets);
 
 /***
@@ -76,8 +76,9 @@ void main() {
 	initListTickets(ticketsList);
 	ReadUsers(USERS_PATH, usersList);
 	ReadTickets(TICKETS_PATH, ticketsList);
-	//SearchByTwoFields(ticketsList);
-	//system("cls");
+
+	char options[3] = { '2',NULL,'2' }; // first: search property, second: both strings, thrid: operand
+	Search(ticketsList, TICKETS_PATH, options);
 	//UpdateTicket(ticketsList);
 	//AddTickets(TICKETS_PATH, ticketsList);
 	//DeleteTicket(TICKETS_PATH, ticketsList);
@@ -109,6 +110,17 @@ void removeSpaces(char* str)
 	str[count] = '\0';
 }
 
+void delay(int number_of_seconds) 
+{ 
+    // Converting time into milli_seconds 
+    int milli_seconds = 1000 * number_of_seconds; 
+  
+    // Storing start time 
+    clock_t start_time = clock(); 
+  
+    // looping till required time is not achieved 
+    while (clock() < start_time + milli_seconds); 
+} 
 void getDateTime(int* day, int* month, int* year, int* hours, int* mins)
 {
 	time_t rawtime;
@@ -166,15 +178,15 @@ void menu(user* current, listUsers* tickets)
 
 	while (1) {
 		// MENU FOR client 
-		printf("\n //////////CAR SYSTEM MENU////////////\n");
-		printf("\n *	[1] Search car ticket			*\n");
-		printf("\n *	[2] Add car ticket				*\n");
+		printf("\n //////////////CAR SYSTEM MENU////////////////\n");
+		printf("\n *	[1] Search car ticket           *\n");
+		printf("\n *	[2] Add car ticket              *\n");
 		if (current->level>1){
-		printf("\n *	[3] Edit car ticket				*\n");
-		printf("\n *	[4] Delete car ticket			*\n");
+		printf("\n *	[3] Edit car ticket             *\n");
+		printf("\n *	[4] Delete car ticket           *\n");
 		}
 		if (current->level==3){
-		printf("\n *	[5] Admin area					*\n");
+		printf("\n *	[5] Admin area                  *\n");
 		}
 		printf("\n Please select your action [1-5]. to exit press [0]");
 		scanf("%d", &menu_option);
@@ -183,7 +195,7 @@ void menu(user* current, listUsers* tickets)
 
 		//Search cars (Menu option)
 		case 1: {
-			printf("\n========================================================================================\n");
+			printf("\n==================================================================\n");
 			printf("choose searching by CAR NUMBER [1] or STATUS [2] or BOTH [3] or DATE [4]. to Exit press 0.\n");
 			printf("enter your option: ");
 			scanf("%d", &action);
@@ -193,21 +205,21 @@ void menu(user* current, listUsers* tickets)
 				// Go back to main menu
 				case 0: {
 					printf("*MESSAGE: Exit to menu.\n");
-					delay (5); // time to see the message
+					delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
 				// Search CAR
 				case 1: {
 					printf("*MESSAGE: You selected option number [1]\n");
-					delay (5); // time to see the message
+					delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
 				// Search  STATUS
 				case 2: {
 					printf("*MESSAGE: You selected option number [2]\n");
-					delay (5); // time to see the message
+					delay (2); // time to see the message
 					system("cls"); // clear screen
 					printf("Enter STATUS: [1] present sent to the customer. [0] present In the garage:");
 					break;
@@ -215,14 +227,14 @@ void menu(user* current, listUsers* tickets)
 				// Search by CAR NUMBER & STATUS
 				case 3: {
 					printf("*MESSAGE: You selected option number [3]\n");
-					delay (5); // time to see the message
+					delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
 				// Search DATE
 				case 4: {
 					printf("*MESSAGE: You selcted option number [4]\n");
-					delay (5); // time to see the message
+					delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
@@ -231,7 +243,7 @@ void menu(user* current, listUsers* tickets)
 					printf("ERROR: Invalid number. Enter vaild number!\n");
 					printf("Re-Enter option:");
 					scanf("%d", &action);
-					delay (5); // time to see the message
+					delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
@@ -240,13 +252,13 @@ void menu(user* current, listUsers* tickets)
 
 		//Add car ticket (Menu option)
 		case 2: {
-			printf("\n========================================================================================\n");
+			printf("\n==================================================================\n");
 			break;
 		}
 		// Edit Car tickets function (Menu option)
 		case 3: {
 			if (current->level>1){
-				printf("\n========================================================================================\n");
+				printf("\n==================================================================\n");
 				printf("function is here");
 			}
 			else {
@@ -258,12 +270,12 @@ void menu(user* current, listUsers* tickets)
 		// Delete Ticket (Menu option)
 		case 4: {
 			if (current->level>1){
-				printf("\n========================================================================================\n");
+				printf("\n==================================================================\n");
 				printf("Delte ticket function\n");
 				}
 				else {
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
-				delay (5); // time to see the message
+				delay (2); // time to see the message
 				system("cls"); // clear screen
 				return 1;
 				}
@@ -273,79 +285,83 @@ void menu(user* current, listUsers* tickets)
 		//Admin Area ( Menu option)
 		case 5: {
 			if (current->level==3){
-				printf("\n========================================================================================\n");
+				printf("\n==================================================================\n");
+				printf("Entring to Admin Mode.");
+				delay (1);
+				printf(".\n");
+				delay (1);
+				printf(".\n");
+				system("cls");
 				printf("Welcome to Admin area! Be careful with your operations.\n");
 				printf ("\n");
-				printf("\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^Admin Area^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
-				printf("[1]		Print logs														^\n");
-				printf("[2]		Print users														^\n");
-				printf("[3]		Print Car Database												^\n");
-				printf("[4]		Change user permissions											^\n");
-				printf("[5]		Delete user from databse										^\n");
+				delay (1);
+				system("cls");
+				printf("\n^^^^^^^^^^^^^^^^^^Admin Area^^^^^^^^^^^^^^^^^^^^^^\n");
+				printf("[1]		Print logs                *^\n");
+				printf("[2]		Print users               *^\n");
+				printf("[3]		Print Car Database        *^\n");
+				printf("[4]		Change user permissions	  *^\n");
+				printf("[5]		Delete user from databse  *^\n");
 				printf("To exit to main menu press [0]. Remmber you are in Admin Mode.");
-				printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+				printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
 				printf("\n \n");
 				printf("Enter your option:");
 				scanf("%d", &action);
 			switch(action){
 				case 0: {
-					printf("\n========================================================================================\n");
+					printf("\n==================================================================\n");
 					printf("*MESSAGE: Exit to menu.\n");
-					delay (5); // time to see the message
+					delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
 				//print logs function
 				case 1: {
-					printf("\n========================================================================================\n");
+					printf("\n==================================================================\n");
 					printf("Printing logs... Please wait");
 					delay (1); // time to see the message
 					printf(".");
 					delay (1); // time to see the message
 					printf(".\n");
-					delay (3);
 					system("cls"); // clear screen
 					break;
 				}
 				//print users function
 				case 2: {
-					printf("\n========================================================================================\n");
+					printf("\n==================================================================\n");
 					printf("Printing users... Please wait");
 					delay (1); // time to see the message
 					printf(".");
 					delay (1); // time to see the message
 					printf(".\n");
-					delay (3);
 					system("cls"); // clear screen
 					break;
 				}
 				//print car database function
 				case 3: {
-					printf("\n========================================================================================\n");
+					printf("\n==================================================================\n");
 					printf("Printing car database... Please wait");
 					delay (1); // time to see the message
 					printf(".");
 					delay (1); // time to see the message
 					printf(".\n");
-					delay (3);
 					system("cls"); // clear screen
 					break;
 				}
 				//change user permission function
 				case 4: {
-					printf("\n========================================================================================\n");
+					printf("\n==================================================================\n");
 					printf("Change user premission function");
 					delay (1); // time to see the message
 					printf(".");
 					delay (1); // time to see the message
 					printf(".\n");
-					delay (3);
 					system("cls"); // clear screen
 					break;
 				}
 				//delete user function
 				case 5: {
-					printf("\n========================================================================================\n");
+					printf("\n==================================================================\n");
 					printf("Delete user function \n");
 					break;
 				}
@@ -359,7 +375,7 @@ void menu(user* current, listUsers* tickets)
 			}
 			else{
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
-				delay (5); // time to see the message
+				delay (2); // time to see the message
 				system("cls"); // clear screen
 				return 1;
 			}
