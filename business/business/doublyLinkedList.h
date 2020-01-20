@@ -1,4 +1,9 @@
-/* Doubly Linked List implementation */
+/////////////////////////////////////
+//		Copyrights (C) to	   /////
+//		   January 2020		  /////
+//*/ Raviv Nachum ID 311453096  //
+//*/ Barak Pahima ID 203484217 //
+////////////////////////////////
 #include<stdio.h>
 #include<stdlib.h>
 

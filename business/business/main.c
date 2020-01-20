@@ -1,11 +1,17 @@
+/////////////////////////////////////
+//		Copyrights (C) to	   /////
+//		   January 2020		  /////
+//*/ Raviv Nachum ID 311453096  //
+//*/ Barak Pahima ID 203484217 //
+////////////////////////////////
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-//#include "doublyLinkedList.h"
 #include "doubly_list_users.h"
 #include "doubly_list_tickets.h"
 #include <stdlib.h>
+//#include "doublyLinkedList.h"
 
 char* fp_path;
 
@@ -39,6 +45,8 @@ void SearchByColor(listTicket* lst);
 void SearchByPrice(listTicket* lst);
 void SearchByStatus(listTicket* lst);
 void SearchByDate(listTicket* lst);
+void Logs (user* current, char operation [15]);
+
 
 void menu(user* current, listUsers* tickets);
 
@@ -47,7 +55,18 @@ void menu(user* current, listUsers* tickets);
 * You may change it according to your needs.
 ***/
 
-void delay(int number_of_seconds)
+//This function hangle with logs implementation. getting 2 objects: char that describe the operation and audit the current user
+void Logs (user* current, char operation [15])
+{
+		int day, month, year, hours, mins;
+		getDateTime (&day, &month, &year, &hours, &mins);
+		fopen_s(&fp, LOG_PATH, "a");
+		// Username ^^ Operation ^^ Date ^^ Time
+		fprintf_s(fp, "%-15s %-15s %02d/%02d/%d %02d:%02d\n", current->userName, operation, day, month, year, hours, mins);
+		fclose(fp);
+	}
+}
+void Delay(int number_of_seconds)
 {
 	// Converting time into milli_seconds 
 	int milli_seconds = 1000 * number_of_seconds;
@@ -95,6 +114,7 @@ void main() {
 	while (LogIn(usersList, currentUser) != 1);
 	//AddUser(USERS_PATH, lst);
 	printf("%s, Welcome to Garage System!\n", currentUser->fullName);
+	Logs(currentUser->userName, "Logging");
 	//getDateTime(&day, &month, &year, &hours, &mins);
 	//printf("Current computer time: %02d/%02d/%d, %02d:%02d\n", day, month, year, hours, mins);
 		/* Display Menu */
@@ -105,7 +125,6 @@ void main() {
 	//free(ticketsList);
 	system("pause");
 }
-
 void removeSpaces(char* str)
 {
 	// To keep track of non-space character count 
@@ -205,21 +224,21 @@ void menu(user* current, listUsers* tickets)
 				// Go back to main menu
 				case 0: {
 					printf("*MESSAGE: Exit to menu.\n");
-					delay (2); // time to see the message
+					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
 				// Search CAR
 				case 1: {
 					printf("*MESSAGE: You selected option number [1]\n");
-					delay (2); // time to see the message
+					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
 				// Search  STATUS
 				case 2: {
 					printf("*MESSAGE: You selected option number [2]\n");
-					delay (2); // time to see the message
+					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					printf("Enter STATUS: [1] present sent to the customer. [0] present In the garage:");
 					break;
@@ -227,14 +246,14 @@ void menu(user* current, listUsers* tickets)
 				// Search by CAR NUMBER & STATUS
 				case 3: {
 					printf("*MESSAGE: You selected option number [3]\n");
-					delay (2); // time to see the message
+					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
 				// Search DATE
 				case 4: {
 					printf("*MESSAGE: You selcted option number [4]\n");
-					delay (2); // time to see the message
+					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
@@ -243,7 +262,7 @@ void menu(user* current, listUsers* tickets)
 					printf("ERROR: Invalid number. Enter vaild number!\n");
 					printf("Re-Enter option:");
 					scanf("%d", &action);
-					delay (2); // time to see the message
+					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
@@ -275,7 +294,7 @@ void menu(user* current, listUsers* tickets)
 				}
 				else {
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
-				delay (2); // time to see the message
+				Delay (2); // time to see the message
 				system("cls"); // clear screen
 				return 1;
 				}
@@ -287,14 +306,14 @@ void menu(user* current, listUsers* tickets)
 			if (current->level==3){
 				printf("\n==================================================================\n");
 				printf("Entring to Admin Mode.");
-				delay (1);
+				Delay (1);
 				printf(".\n");
-				delay (1);
+				Delay (1);
 				printf(".\n");
 				system("cls");
 				printf("Welcome to Admin area! Be careful with your operations.\n");
 				printf ("\n");
-				delay (1);
+				Delay (1);
 				system("cls");
 				printf("\n^^^^^^^^^^^^^^^^^^Admin Area^^^^^^^^^^^^^^^^^^^^^^\n");
 				printf("[1]		Print logs                *^\n");
@@ -311,7 +330,7 @@ void menu(user* current, listUsers* tickets)
 				case 0: {
 					printf("\n==================================================================\n");
 					printf("*MESSAGE: Exit to menu.\n");
-					delay (2); // time to see the message
+					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
@@ -319,9 +338,9 @@ void menu(user* current, listUsers* tickets)
 				case 1: {
 					printf("\n==================================================================\n");
 					printf("Printing logs... Please wait");
-					delay (1); // time to see the message
+					Delay (1); // time to see the message
 					printf(".");
-					delay (1); // time to see the message
+					Delay (1); // time to see the message
 					printf(".\n");
 					system("cls"); // clear screen
 					break;
@@ -330,9 +349,9 @@ void menu(user* current, listUsers* tickets)
 				case 2: {
 					printf("\n==================================================================\n");
 					printf("Printing users... Please wait");
-					delay (1); // time to see the message
+					Delay (1); // time to see the message
 					printf(".");
-					delay (1); // time to see the message
+					Delay (1); // time to see the message
 					printf(".\n");
 					system("cls"); // clear screen
 					break;
@@ -341,9 +360,9 @@ void menu(user* current, listUsers* tickets)
 				case 3: {
 					printf("\n==================================================================\n");
 					printf("Printing car database... Please wait");
-					delay (1); // time to see the message
+					Delay (1); // time to see the message
 					printf(".");
-					delay (1); // time to see the message
+					Delay (1); // time to see the message
 					printf(".\n");
 					system("cls"); // clear screen
 					break;
@@ -352,9 +371,9 @@ void menu(user* current, listUsers* tickets)
 				case 4: {
 					printf("\n==================================================================\n");
 					printf("Change user premission function");
-					delay (1); // time to see the message
+					Delay (1); // time to see the message
 					printf(".");
-					delay (1); // time to see the message
+					Delay (1); // time to see the message
 					printf(".\n");
 					system("cls"); // clear screen
 					break;
@@ -375,7 +394,7 @@ void menu(user* current, listUsers* tickets)
 			}
 			else{
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
-				delay (2); // time to see the message
+				Delay (2); // time to see the message
 				system("cls"); // clear screen
 				return 1;
 			}
