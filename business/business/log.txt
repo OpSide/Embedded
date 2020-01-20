@@ -1,2 +1,2 @@
-username               Operation               Date       Time
+Username               Operation               Date       Time
 Raviv                  Logging                 01/02/1992 20:02
