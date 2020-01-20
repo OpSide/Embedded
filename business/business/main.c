@@ -1,11 +1,17 @@
+/////////////////////////////////////
+//		Copyrights (C) to	   /////
+//		   January 2020		  /////
+//*/ Raviv Nachum ID 311453096  //
+//*/ Barak Pahima ID 203484217 //
+////////////////////////////////
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-//#include "doublyLinkedList.h"
 #include "doubly_list_users.h"
 #include "doubly_list_tickets.h"
 #include <stdlib.h>
+//#include "doublyLinkedList.h"
 
 char* fp_path;
 
@@ -33,9 +39,10 @@ void ReadTickets(char* path, listTicket* lst);
 void DeleteTicket(char* path, listTicket* lst);
 void AddTickets(char* path, listTicket* lst);
 void UpdateTicket(listTicket* lst);
-void Search(listTicket* lst, char* path, char* ops);
 
+void Search(listTicket* lst, char* path, char* ops);
 void Logs (user* current, char operation [15]);
+
 void menu(user* current, listUsers* tickets);
 
 /***
@@ -43,6 +50,7 @@ void menu(user* current, listUsers* tickets);
 * You may change it according to your needs.
 ***/
 
+//This function hangle with logs implementation. getting 2 objects: char that describe the operation and audit the current user
 void Logs (user* current, char operation [15])
 {
 		int day, month, year, hours, mins;

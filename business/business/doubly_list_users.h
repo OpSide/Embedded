@@ -1,3 +1,9 @@
+/////////////////////////////////////
+//		Copyrights (C) to	   /////
+//		   January 2020		  /////
+//*/ Raviv Nachum ID 311453096  //
+//*/ Barak Pahima ID 203484217 //
+////////////////////////////////
 typedef struct user
 {
 	char userName[16];

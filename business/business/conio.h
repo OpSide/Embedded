@@ -1,3 +1,9 @@
+/////////////////////////////////////
+//		Copyrights (C) to	   /////
+//		   January 2020		  /////
+//*/ Raviv Nachum ID 311453096  //
+//*/ Barak Pahima ID 203484217 //
+////////////////////////////////
 /*
  * conio.h
  * This file has no copyright assigned and is placed in the Public Domain.

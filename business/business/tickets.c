@@ -1,3 +1,9 @@
+/////////////////////////////////////
+//		Copyrights (C) to	   /////
+//		   January 2020		  /////
+//*/ Raviv Nachum ID 311453096  //
+//*/ Barak Pahima ID 203484217 //
+////////////////////////////////
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <time.h>
