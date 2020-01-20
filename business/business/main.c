@@ -45,7 +45,7 @@ void SearchByColor(listTicket* lst);
 void SearchByPrice(listTicket* lst);
 void SearchByStatus(listTicket* lst);
 void SearchByDate(listTicket* lst);
-void Logs (user* current, char operation [15]);
+void getDateTime(int* day, int* month, int* year, int* hours, int* mins);
 
 
 void menu(user* current, listUsers* tickets);
@@ -58,13 +58,13 @@ void menu(user* current, listUsers* tickets);
 //This function hangle with logs implementation. getting 2 objects: char that describe the operation and audit the current user
 void Logs (user* current, char operation [15])
 {
+		FILE* fp;
 		int day, month, year, hours, mins;
 		getDateTime (&day, &month, &year, &hours, &mins);
 		fopen_s(&fp, LOG_PATH, "a");
 		// Username ^^ Operation ^^ Date ^^ Time
 		fprintf_s(fp, "%-15s %-15s %02d/%02d/%d %02d:%02d\n", current->userName, operation, day, month, year, hours, mins);
 		fclose(fp);
-	}
 }
 void Delay(int number_of_seconds)
 {
@@ -78,7 +78,6 @@ void Delay(int number_of_seconds)
 	while (clock() < start_time + milli_seconds);
 }
 
-void getDateTime(int* day, int* month, int* year, int* hours, int* mins);
 /***
 * Handle function: Returns by referfance the current date and time
 ***/
@@ -105,16 +104,15 @@ void main() {
 	//SearchByTwoFields(ticketsList);
 	//SearchByModel(ticketsList);
 	//SearchByColor(ticketsList);
-
 	//char options[3] = { '2',NULL,'2' }; // first: search property, second: both strings, thrid: operand
 	//Search(ticketsList, TICKETS_PATH, options);
 	//UpdateTicket(ticketsList);
 	//AddTickets(TICKETS_PATH, ticketsList);
 	//DeleteTicket(TICKETS_PATH, ticketsList);
 	while (LogIn(usersList, currentUser) != 1);
+	Logs(currentUser,"logging");
 	//AddUser(USERS_PATH, lst);
 	printf("%s, Welcome to Garage System!\n", currentUser->fullName);
-	Logs(currentUser->userName, "Logging");
 	//getDateTime(&day, &month, &year, &hours, &mins);
 	//printf("Current computer time: %02d/%02d/%d, %02d:%02d\n", day, month, year, hours, mins);
 		/* Display Menu */

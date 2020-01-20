@@ -1,2 +1,5 @@
-Username               Operation               Date       Time
-Raviv                  Logging                 01/02/1992 20:02
+Username        Operation       Date       Time
+Raviv           Logging         01/02/1992 20:02
+admin           logging         20/01/2020 22:02
+admin           Logging         20/01/2020 22:03
+barak           logging         20/01/2020 22:06
