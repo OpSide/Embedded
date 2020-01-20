@@ -3,6 +3,7 @@
 #include <time.h>
 #include "doubly_list_tickets.h"
 #include <sys/stat.h>
+#include <time.h>
 
 #define TICKETS_PATH "tickets.txt"
 void Search(listTicket* lst, char* path, char* ops)
@@ -104,7 +105,7 @@ void SearchByTwoFields(listTicket* lst)
 	removeSpaces(&tempNode->data.model);
 	while (tempNode != NULL)
 	{
-		if (strncmp(&tempNode->data.color, str1) == 1 && strncmp(tempNode->data.model , str2) == 1)
+		if (strncmp(&tempNode->data.color, str1) == 0 && strncmp(tempNode->data.model , str2) == 0)
 		{
 			printf("Car found!\n");
 			printf("%-15s%-15s%-15s%-15s%-15s%-15s\n", "carnumber", "model", "color", "date", "price", "status");
@@ -114,6 +115,172 @@ void SearchByTwoFields(listTicket* lst)
 
 		tempNode = tempNode->next;
 	}
+}
+
+void SearchByModel(listTicket* lst)
+{
+
+	char  str2[16];
+	nodeTickets* tempNode;
+
+	printf("Enter model: ");
+	fgets(str2, 15, stdin);
+	str2[strlen(str2) - 1] = '\0';
+
+
+	tempNode = lst->head;
+	if (tempNode == NULL) return;
+
+	removeSpaces(&tempNode->data.model);
+	while (tempNode != NULL)
+	{
+		if (strncmp(tempNode->data.model, str2) == 0)
+		{
+			printf("Car found!\n");
+			printf("%-15s%-15s%-15s%-15s%-15s%-15s\n", "carnumber", "model", "color", "date", "price", "status");
+			printf("%-7d        %-15s%-15s%-15s%-4d           %-1d\n", tempNode->data.carNumber, tempNode->data.model, tempNode->data.color, tempNode->data.date, tempNode->data.price, tempNode->data.status);
+			break;
+		}
+
+		tempNode = tempNode->next;
+	}
+
+}
+
+void SearchByColor(listTicket* lst)
+{
+
+	char  str2[16];
+	nodeTickets* tempNode;
+
+	printf("Enter color: ");
+	fgets(str2, 15, stdin);
+	str2[strlen(str2) - 1] = '\0';
+
+
+	tempNode = lst->head;
+	if (tempNode == NULL) return;
+
+	removeSpaces(&tempNode->data.color);
+	while (tempNode != NULL)
+	{
+		if (strncmp(tempNode->data.color, str2) == 0)
+		{
+			printf("Car found!\n");
+			printf("%-15s%-15s%-15s%-15s%-15s%-15s\n", "carnumber", "model", "color", "date", "price", "status");
+			printf("%-7d        %-15s%-15s%-15s%-4d           %-1d\n", tempNode->data.carNumber, tempNode->data.model, tempNode->data.color, tempNode->data.date, tempNode->data.price, tempNode->data.status);
+			break;
+		}
+
+		tempNode = tempNode->next;
+	}
+
+}
+
+void SearchByPrice(listTicket* lst)
+{
+
+	int price, opt;
+	char operand;
+	nodeTickets* tempNode;
+	printf("Please select [1] to search by greater then or [2] to search by less then\n");
+	scanf("%d", &opt);
+	if (opt != 1 && opt != 2)
+	{
+		printf("Wrong input");
+		return 0;
+	}
+
+	printf("Enter price: \n");
+	scanf("%d", &price);
+
+	tempNode = lst->head;
+	if (tempNode == NULL) return 0;
+
+		printf("%-15s%-15s%-15s%-15s%-15s%-15s\n", "carnumber", "model", "color", "date", "price", "status");
+	while (tempNode != NULL)
+	{
+		if (opt == 1) {
+			if (price < tempNode->data.price)
+			{
+				printf("%-7d        %-15s%-15s%-15s%-4d           %-1d\n", tempNode->data.carNumber, tempNode->data.model, tempNode->data.color, tempNode->data.date, tempNode->data.price, tempNode->data.status);
+			}
+		}
+		else if (opt == 2) {
+			if (price > tempNode->data.price)
+			{
+				printf("%-7d        %-15s%-15s%-15s%-4d           %-1d\n", tempNode->data.carNumber, tempNode->data.model, tempNode->data.color, tempNode->data.date, tempNode->data.price, tempNode->data.status);
+			}
+		}
+		tempNode = tempNode->next;
+	}
+}
+
+void SearchByStatus(listTicket* lst)
+{
+	int status;
+	nodeTickets* tempNode;
+
+
+	printf("Enter status to search: \n");
+	scanf("%d", &status);
+	if (status != 0 && status != 1) {
+		printf("Wrong input");
+		return 0;
+	}
+	tempNode = lst->head;
+	if (tempNode == NULL) return 0;
+
+	printf("%-15s%-15s%-15s%-15s%-15s%-15s\n\n", "carnumber", "model", "color", "date", "price", "status");
+	while (tempNode != NULL)
+	{
+		if (status == tempNode->data.status)
+		{
+			printf("%-7d        %-15s%-15s%-15s%-4d           %-1d\n", tempNode->data.carNumber, tempNode->data.model, tempNode->data.color, tempNode->data.date, tempNode->data.price, tempNode->data.status);
+		}
+		tempNode = tempNode->next;
+	}
+}
+
+void SearchByDate(listTicket* lst)
+{
+	char date[16];
+	int opt;
+	nodeTickets* tempNode;
+	printf("Please select [1] to search by greater then or [2] to search by less then\n");
+	scanf("%d", &opt);
+	if (opt != 1 && opt != 2)
+	{
+		printf("Wrong input");
+		return 0;
+	}
+
+	printf("Enter date with the following syntax: DD-MM-YYYY: \n");
+	getchar();
+	fgets(date, 15, stdin);
+	date[strlen(date) - 1] = '\0';
+	
+	tempNode = lst->head;
+	if (tempNode == NULL) return 0;
+
+	printf("%-15s%-15s%-15s%-15s%-15s%-15s\n\n", "carnumber", "model", "color", "date", "price", "status");
+	while (tempNode != NULL)
+	{
+		removeSpaces(tempNode->data.date);
+		if (opt == 1) {
+			if (strncmp(tempNode->data.date, date) > 0)
+			{
+				printf("%-7d        %-15s%-15s%-15s%-4d           %-1d\n", tempNode->data.carNumber, tempNode->data.model, tempNode->data.color, tempNode->data.date, tempNode->data.price, tempNode->data.status);
+			}
+		}
+			else if (opt == 2) {
+				if (strncmp(tempNode->data.date, date) < 0)
+				{
+				printf("%-7d        %-15s%-15s%-15s%-4d           %-1d\n", tempNode->data.carNumber, tempNode->data.model, tempNode->data.color, tempNode->data.date, tempNode->data.price, tempNode->data.status);
+				}
+			}
+		tempNode = tempNode->next;
+		}
 }
 
 

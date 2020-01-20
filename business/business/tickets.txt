@@ -1,2 +1,2 @@
 carnumber      model          color          date           price          status         
-8877755        rio            black          19/01/2020     1100           0
+8877755        rio            black          19-01-2020     1100           0
