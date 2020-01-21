@@ -80,7 +80,30 @@ void Delay(int number_of_seconds)
 /***
 * Handle function: Returns by referfance the current date and time
 ***/
-
+// void PrintFiles (char log_file_name){
+// 	 FILE *fptr; 
+    
+// 	char c; 
+//     // Open file
+// 	//fopen_s(&fptr, LOG_PATH, "r");
+//     fptr = fopen(log_file_name, "r"); 
+//     if (fptr == NULL) 
+//     { 
+//         printf("Cannot open file. Contact with the administrator \n"); 
+//         exit(0); 
+//     } 
+  
+//     // Read contents from file 
+//     c = fgetc(fptr); 
+//     while (c != EOF) 
+//     { 
+//         printf ("\n %c \n", c); 
+//         c = fgetc(fptr); 
+//     } 
+  
+//     fclose(fptr); 
+    
+// }
 void main() {
 
 	int day, month, year, hours, mins;
@@ -380,6 +403,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					Delay (1); // time to see the message
 					printf(".\n");
 					system("cls"); // clear screen
+					//PrintFiles("LOG_PATH");
 					break;
 				}
 				//print users function
@@ -391,6 +415,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					Delay (1); // time to see the message
 					printf(".\n");
 					system("cls"); // clear screen
+					//PrintFiles("USERS_PATH");
 					break;
 				}
 				//print car database function
@@ -402,6 +427,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					Delay (1); // time to see the message
 					printf(".\n");
 					system("cls"); // clear screen
+					//PrintFiles("TICKETS_CAR");
 					break;
 				}
 				// Create user
@@ -447,4 +473,3 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 		}
 	}
 }
-
