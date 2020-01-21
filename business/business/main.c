@@ -47,7 +47,6 @@ void SearchByStatus(listTicket* lst);
 void SearchByDate(listTicket* lst);
 void getDateTime(int* day, int* month, int* year, int* hours, int* mins);
 
-
 void menu(user* current, listUsers* tickets);
 
 /***
@@ -93,31 +92,21 @@ void main() {
 	listTicket* ticketsList = (listTicket*)malloc(sizeof(listTicket));
 	user* currentUser = (user*)malloc(sizeof(user));
 	ticket* currentTicket = (ticket*)malloc(sizeof(ticket));
+	
+	getDateTime(&day, &month, &year, &hours, &mins);
 
 	initListUsers(usersList);
 	initListTickets(ticketsList);
 	ReadUsers(USERS_PATH, usersList);
 	ReadTickets(TICKETS_PATH, ticketsList);
-	//SearchByDate(ticketsList);
-	//SearchByStatus(ticketsList);
-	//SearchByPrice(ticketsList);
-	//SearchByTwoFields(ticketsList);
-	//SearchByModel(ticketsList);
-	//SearchByColor(ticketsList);
-	//char options[3] = { '2',NULL,'2' }; // first: search property, second: both strings, thrid: operand
-	//Search(ticketsList, TICKETS_PATH, options);
-	//UpdateTicket(ticketsList);
-	//AddTickets(TICKETS_PATH, ticketsList);
-	//DeleteTicket(TICKETS_PATH, ticketsList);
+
 	while (LogIn(usersList, currentUser) != 1);
-	Logs(currentUser,"logging");
+	Logs(currentUser,"Logging");
 	//AddUser(USERS_PATH, lst);
-	printf("%s, Welcome to Garage System!\n", currentUser->fullName);
-	//getDateTime(&day, &month, &year, &hours, &mins);
-	//printf("Current computer time: %02d/%02d/%d, %02d:%02d\n", day, month, year, hours, mins);
-		/* Display Menu */
-	//DeleteUser(USERS_PATH, usersList);
-	menu(currentUser, usersList);
+	printf("Time:[%02d/%02d/%d, %02d:%02d],  %s, Welcome to Garage System! Your level: %d \n", day, month, year, hours, mins, currentUser->fullName, currentUser->level);
+
+	/* Display Menu */
+	menu(currentUser, usersList, ticketsList);
 
 	free(usersList);
 	//free(ticketsList);
@@ -189,7 +178,7 @@ int LogIn(listUsers *lst, user* currentUser)
 	return 0;
 }
 
-void menu(user* current, listUsers* tickets)
+void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 {
 	int menu_option, action; //MENU_OPTION - gets from client the selected menu number. ACTION - gets from the client the selected operation in selcted menu number.
 
@@ -213,47 +202,77 @@ void menu(user* current, listUsers* tickets)
 		//Search cars (Menu option)
 		case 1: {
 			printf("\n==================================================================\n");
-			printf("choose searching by CAR NUMBER [1] or STATUS [2] or BOTH [3] or DATE [4]. to Exit press 0.\n");
+			printf("choose searching by MODEL [1] or STATUS [2] or BOTH [3] or DATE [4] or PRICE [5] or COLOR [6]. to Exit press 0.\n");
 			printf("enter your option: ");
 			scanf("%d", &action);
 			// Check for chosen action (search car menu option)
+
 			switch (action)
 			{
 				// Go back to main menu
 				case 0: {
-					printf("*MESSAGE: Exit to menu.\n");
+					printf("[Message]: Exit to menu.\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
-				// Search CAR
+				// Search MODEL
 				case 1: {
-					printf("*MESSAGE: You selected option number [1]\n");
-					Delay (2); // time to see the message
-					system("cls"); // clear screen
+						printf("[Message]: You selected option number [1]\n");
+						Delay (2); // time to see the message
+						system("cls"); // clear screen
+						SearchByModel(ticketsList);
+						Logs(current->userName, "Search");
+						free(ticketsList);
 					break;
 				}
 				// Search  STATUS
 				case 2: {
-					printf("*MESSAGE: You selected option number [2]\n");
+					printf("[Message]: You selected option number [2]\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
-					printf("Enter STATUS: [1] present sent to the customer. [0] present In the garage:");
+					printf("[Message]: [1] present sent to the customer. [0] present In the garage:\n");
+					SearchByStatus(ticketsList);
+					Logs(current->userName, "Search");
+					free(ticketsList);
 					break;
 				}
-				// Search by CAR NUMBER & STATUS
+				// Search by TWO FIELDS
 				case 3: {
-					printf("*MESSAGE: You selected option number [3]\n");
+					printf("[Message]: You selected option number [3]\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
+					SearchByTwoFields(ticketsList);
+					Logs(current->userName, "Search");
+					free(ticketsList);
 					break;
 				}
 				// Search DATE
 				case 4: {
-					printf("*MESSAGE: You selcted option number [4]\n");
+					printf("[Message]: You selcted option number [4]\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
+					SearchByDate(ticketsList);
+					Logs(current->userName, "Search");
+					free(ticketsList);
 					break;
+				}
+				// Search PRICE
+				case 5: {
+					printf("[Message]: You selcted option number [5]\n");
+					Delay (2);
+					system("cls");
+					SearchByPrice(ticketsList);
+					Logs(current->userName, "Search");
+					free(ticketsList);
+				}
+				case 6: {
+					printf("[Message]: You selcted option number [6]\n");
+					Delay (2);
+					system("cls");
+					SearchByColor(ticketsList);
+					Logs(current->userName, "Search");
+					free(ticketsList);
 				}
 				// Invalid input from client
 				default: {
@@ -270,16 +289,30 @@ void menu(user* current, listUsers* tickets)
 		//Add car ticket (Menu option)
 		case 2: {
 			printf("\n==================================================================\n");
+			printf("Add Car Ticket");
+			Delay(2);
+			system("cls");
+			AddTickets(TICKETS_PATH, ticketsList);
+			Logs(current->userName, "Create Ticket");
+			free(ticketsList);
 			break;
 		}
 		// Edit Car tickets function (Menu option)
 		case 3: {
 			if (current->level>1){
 				printf("\n==================================================================\n");
-				printf("function is here");
+				printf("Edit exsit car ticket\n");
+				Delay(2);
+				system("cls");
+				UpdateTicket(ticketsList);
+				Logs(current->userName, "Edit Ticket");
+				free(ticketsList);
 			}
 			else {
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
+				Logs(current->userName, "No Permission");
+				Delay (2); // time to see the message
+				system("cls"); // clear screen
 				return 1;
 				}
 			break;
@@ -288,10 +321,16 @@ void menu(user* current, listUsers* tickets)
 		case 4: {
 			if (current->level>1){
 				printf("\n==================================================================\n");
-				printf("Delte ticket function\n");
+				printf("Delete exist ticket\n");
+				Delay(2);
+				system("cls");
+				DeleteTicket(TICKETS_PATH, ticketsList);
+				Logs(current->userName, "Delete Ticket");
+				free(ticketsList);
 				}
 				else {
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
+				Logs(current->userName, "No Permission");
 				Delay (2); // time to see the message
 				system("cls"); // clear screen
 				return 1;
@@ -317,17 +356,17 @@ void menu(user* current, listUsers* tickets)
 				printf("[1]		Print logs                *^\n");
 				printf("[2]		Print users               *^\n");
 				printf("[3]		Print Car Database        *^\n");
-				printf("[4]		Change user permissions	  *^\n");
+				printf("[4]		Add new user	          *^\n");
 				printf("[5]		Delete user from databse  *^\n");
 				printf("To exit to main menu press [0]. Remmber you are in Admin Mode.");
-				printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+				printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
 				printf("\n \n");
 				printf("Enter your option:");
 				scanf("%d", &action);
 			switch(action){
 				case 0: {
 					printf("\n==================================================================\n");
-					printf("*MESSAGE: Exit to menu.\n");
+					printf("[Message]: Exit to menu.\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
@@ -365,33 +404,41 @@ void menu(user* current, listUsers* tickets)
 					system("cls"); // clear screen
 					break;
 				}
-				//change user permission function
+				// Create user
 				case 4: {
 					printf("\n==================================================================\n");
-					printf("Change user premission function");
-					Delay (1); // time to see the message
-					printf(".");
-					Delay (1); // time to see the message
-					printf(".\n");
+					printf("create user\n");
+					Delay(2);
 					system("cls"); // clear screen
+					AddUser(USERS_PATH, usersList);
+					Logs(current->userName, "Create user");
+					free(usersList);
 					break;
 				}
 				//delete user function
 				case 5: {
 					printf("\n==================================================================\n");
-					printf("Delete user function \n");
+					printf("Delete user\n");
+					Delay (2);
+					system("cls");//clr screen
+					DeleteUser(USERS_PATH, usersList);
+					Logs(current->userName, "Delete User");
+					free(usersList);
 					break;
 				}
 				default: {
 					printf("ERROR: Invalid number. Enter vaild number!\n");
 					printf("Re-Enter option:");
 					scanf("%d", &action);
+					Delay (2); // time to see the message
+					system("cls"); // clear screen
 					break;
 				}
 			}
 			}
 			else{
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
+				Logs(current->userName, "No Permission");
 				Delay (2); // time to see the message
 				system("cls"); // clear screen
 				return 1;
