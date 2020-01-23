@@ -104,7 +104,6 @@ void SearchByTwoFields(listTicket* lst)
 	fgets(str2, 15, stdin);
 	str2[strlen(str2) - 1] = '\0';
 	printf("Enter color: ");
-	getchar();
 	fgets(str1, 15, stdin);
 	str1[strlen(str1) - 1] = '\0';
 

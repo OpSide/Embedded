@@ -45,12 +45,15 @@ void AddUser(char *fp_path, listUsers* lst)
 	}
 
 	printf("Enter username: ");
+	getchar();
 	fgets(tempUser.userName, 15, stdin);
 	tempUser.userName[strlen(tempUser.userName) - 1] = '\0';
 	printf("Enter password: ");
+	getchar();
 	fgets(tempUser.password, 15, stdin);
 	tempUser.password[strlen(tempUser.password) - 1] = '\0';
 	printf("Enter full name ");
+	getchar();
 	fgets(tempUser.fullName, 15, stdin);
 	tempUser.fullName[strlen(tempUser.fullName) - 1] = '\0';
 	printf("Enter level: ");

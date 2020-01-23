@@ -83,3 +83,30 @@ barak           Logging         23/01/2020 21:28
 barak           Create Ticket   23/01/2020 21:29
 barak           Logging         23/01/2020 21:29
 barak           Create Ticket   23/01/2020 21:30
+barak           Logging         23/01/2020 22:16
+barak           Search          23/01/2020 22:16
+barak           Search          23/01/2020 22:17
+barak           Create Ticket   23/01/2020 22:17
+barak           Search          23/01/2020 22:18
+barak           Search          23/01/2020 22:18
+barak           Search          23/01/2020 22:20
+barak           Search          23/01/2020 22:20
+barak           Logging         23/01/2020 22:22
+barak           Search          23/01/2020 22:22
+barak           Search          23/01/2020 22:22
+barak           Search          23/01/2020 22:22
+barak           Search          23/01/2020 22:23
+barak           Search          23/01/2020 22:23
+barak           Search          23/01/2020 22:23
+barak           Search          23/01/2020 22:23
+barak           Create Ticket   23/01/2020 22:24
+barak           Edit Ticket     23/01/2020 22:25
+barak           Delete Ticket   23/01/2020 22:25
+barak           Logging         23/01/2020 22:27
+barak           Create user     23/01/2020 22:28
+barak           Delete User     23/01/2020 22:28
+Unauthorized    Log failure     23/01/2020 22:30
+barak           Logging         23/01/2020 22:31
+barak           Logging         23/01/2020 22:32
+Unauthorized    Log failure     23/01/2020 22:33
+barak           Logging         23/01/2020 22:33
