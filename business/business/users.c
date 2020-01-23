@@ -52,7 +52,7 @@ void AddUser(char *fp_path, listUsers* lst)
 	getchar();
 	fgets(tempUser.password, 15, stdin);
 	tempUser.password[strlen(tempUser.password) - 1] = '\0';
-	printf("Enter full name ");
+	printf("Enter full name: ");
 	getchar();
 	fgets(tempUser.fullName, 15, stdin);
 	tempUser.fullName[strlen(tempUser.fullName) - 1] = '\0';
@@ -101,7 +101,7 @@ static size_t DeleteLine(char* buffer, size_t size, const char* userName)
 		}
 		else
 		{
-			puts("Name doest exists");
+			puts("Name doesnt exists");
 			done = 1;
 		}
 	} while (!done);
@@ -117,7 +117,7 @@ void DeleteUser(char* fp_path, listUsers* lst)
 	struct stat st;
 	struct nodeUser* tempNode;
 	
-	printf("Please username: ");
+	printf("Enter username: ");
 	scanf("%s", tempUserName);
 
 	userName[0] = '\n';

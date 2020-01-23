@@ -14,88 +14,9 @@
 void sortList(nodeTickets* head);
 
 #define TICKETS_PATH "tickets.txt"
-void Search(listTicket* lst, char* path, char* ops)
-{
-	FILE* fp;
-	nodeTickets* nodeTicket;
-	nodeTickets* tempNode = NULL;
-	int status, userPrice;
-	int searchOption = ops[0] - '0';
-	nodeTicket = lst->head;
-	char userInput[16], userInput2[16], temp[100];
-	char tempString[16], tempString2[16];
-
-	switch (searchOption)
-	{
-		case 1:
-		{
-			if (ops[1] == 1)
-			{
-			printf("Enter car number: ");
-			fgets(userInput, 15, stdin);
-			userInput[strlen(userInput) - 1] = '\0';
-			strncpy(tempString, nodeTicket->data.carNumber);
-			}
-			else if (ops[1] == 2)
-			{
-			printf("Enter model: ");
-			fgets(userInput, 15, stdin);
-			tempString[strlen(tempString) - 1] = '\0';
-			strncpy(tempString, nodeTicket->data.carNumber);
-			}
-			else if (ops[1] == 3)
-			{
-			printf("Enter car number: ");
-			fgets(userInput, 15, stdin);
-			userInput[strlen(userInput) - 1] = '\0';
-			printf("Enter model: ");
-			fgets(userInput2, 15, stdin);
-			userInput2[strlen(userInput2) - 1] = '\0';
-
-			strncpy(tempString, nodeTicket->data.carNumber);
-			strncpy(tempString2, nodeTicket->data.color);
-			}
-			else
-			{
-				printf("Wrong input");
-			}
-			break;
-		}
-		case 2:
-		{
-			printf("Enter price to search: ");
-			fgets(userInput, 15, stdin);
-			userInput[strlen(userInput) - 1] = '\0';
-
-			itoa(tempNode->data.price,tempString,10);
-			break;
-		}
-		case 3:
-		{
-			printf("Enter car status: ");
-			fgets(userInput2, 15, stdin);
-			userInput2[strlen(userInput2) - 1] = '\0';
-
-			strncpy(tempString, nodeTicket->data.carNumber);
-			break;
-		}
-		case 4:
-		{
-			printf("Enter date: ");
-			fgets(userInput2, 15, stdin);
-			userInput2[strlen(userInput2) - 1] = '\0';
-
-
-			strncpy(tempString, nodeTicket->data.carNumber);
-			break;
-		}
-	}
-
-}
 
 void SearchByTwoFields(listTicket* lst)
 {
-	
 	char str1[16], str2[16];
 	nodeTickets* tempNode;
 
@@ -381,31 +302,7 @@ void ReadTickets(char* path, listTicket* lst)
 	fclose(fp);
 	return 1;
 }
-//
-//void WriteTicketsFile(listTicket* lst, char* fp_path)
-//{
-//	sortList(lst->head);
-//	FILE* fp;
-//	char *temp = "carnumber      model          color          date           price          status\n";
-//
-//	fopen_s(&fp, fp_path, "w+");
-//	if (!fp)
-//	{
-//		printf("File not found!\n");
-//		return;
-//	}
-//	fputs("carnumber      model          color          date           price          status\n", 100, fp);
-//
-//	nodeTickets* tempNode = lst->head;
-//	while (tempNode != NULL)
-//	{
-//		fprintf(fp, "%-7d        %-15s%-15s%-15s%-4d           %-1d\n", tempNode->data.carNumber, tempNode->data.model, tempNode->data.color, tempNode->data.date, tempNode->data.price, tempNode->data.status);
-//		tempNode = tempNode->next;
-//	}
-//	fclose(fp);
-//	return 1;
-//}
-//
+
 // Add ticket function
 void AddTickets(char* fp_path, listTicket* lst)
 {
@@ -424,13 +321,13 @@ void AddTickets(char* fp_path, listTicket* lst)
 	printf("Enter price: ");
 	scanf("%d", &tempTicket.price);
 	getchar();
-	printf("Enter model ");
+	printf("Enter model: ");
 	fgets(tempTicket.model, 15, stdin);
 	tempTicket.model[strlen(tempTicket.model) - 1] = '\0';
 	printf("Enter color: ");
 	fgets(tempTicket.color, 15, stdin);
 	tempTicket.color[strlen(tempTicket.color) - 1] = '\0';
-	printf("Enter date: ");
+	printf("Enter date in the following format DD-MM-YYYY: ");
 	fgets(tempTicket.date, 15, stdin);
 	tempTicket.date[strlen(tempTicket.date) - 1] = '\0';
 
@@ -476,7 +373,7 @@ static size_t DeleteLine(char* buffer, size_t size, const char* carNumber)
 		}
 		else
 		{
-			puts("Name doest exists");
+			puts("Name doesnt exists");
 			done = 1;
 		}
 	} while (!done);
@@ -492,7 +389,7 @@ void DeleteTicket(char* fp_path, listTicket* lst)
 	struct stat st;
 	struct nodeTickets* tempNode;
 
-	printf("Please enter car number: ");
+	printf("Enter car number: ");
 	scanf("%s", tempCarNumber);
 
 	carNumber[0] = '\n';

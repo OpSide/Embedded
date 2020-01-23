@@ -94,6 +94,19 @@ void Delay(int number_of_seconds)
 /***
 * Handle function: Returns by referfance the current date and time
 ***/
+void removeSpaces(char* str)
+{
+	// To keep track of non-space character count 
+	int count = 0;
+
+	// Traverse the given string. If current character 
+	// is not space, then place it at index 'count++' 
+	for (int i = 0; str[i]; i++)
+		if (str[i] != ' ')
+			str[count++] = str[i]; // here count is 
+								   // incremented 
+	str[count] = '\0';
+}
 
 void main() {
 
@@ -115,9 +128,7 @@ void main() {
 	ReadUsers(USERS_PATH, usersList);
 	ReadTickets(TICKETS_PATH, ticketsList);
 	sortList(ticketsList->head);
-	LightBlue();
 	PrintLogo(); // Printing logo system
-	WhiteColor();
 	while (LogIn(usersList, currentUser) != 1){
 		// secure the log with limit the time of retries
 		counter++;
@@ -127,6 +138,7 @@ void main() {
 			printf("You have tried to login more than 3 times. come back later\n");
 			WhiteColor();
 			Logs("Unauthorized", "Log failure");
+			Delay(3);
 			return 1;
 		}
 		
@@ -134,6 +146,7 @@ void main() {
 	Logs(currentUser,"Logging");
 	printf("\n\nTime:[%02d/%02d/%d, %02d:%02d]  ,", day, month, year, hours, mins);
 	LightBlue();
+	removeSpaces(currentUser->fullName);
 	printf("%s", currentUser->fullName);
 	WhiteColor();
 	printf(", Welcome to Garage System! Your level: %d \n", currentUser->level);
@@ -146,19 +159,7 @@ void main() {
 	//
 	system("pause");
 }
-void removeSpaces(char* str)
-{
-	// To keep track of non-space character count 
-	int count = 0;
 
-	// Traverse the given string. If current character 
-	// is not space, then place it at index 'count++' 
-	for (int i = 0; str[i]; i++)
-		if (str[i] != ' ')
-			str[count++] = str[i]; // here count is 
-								   // incremented 
-	str[count] = '\0';
-}
 
 
 void getDateTime(int* day, int* month, int* year, int* hours, int* mins)
@@ -230,7 +231,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 		printf("\n *	[5] Admin area                  *\n");
 		}
 		GreenColor();
-		printf("\n Please select your action [1-5]. to exit press [0]");
+		printf("\n Please select your action [1-5]. to exit press [0]: ");
 		WhiteColor();
 		scanf("%d", &menu_option);
 
@@ -238,6 +239,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 		// exit program
 		case 0: {
 			printf("Good bye!\n");
+			Delay(3);
 			return 1;
 			break;
 		}
@@ -271,6 +273,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 						printf("You selected option number [1]\n");
 						Delay (2); // time to see the message
 						system("cls"); // clear screen
+						printf("Search by model\n");
 						SearchByModel(ticketsList);
 						Logs(current->userName, "Search");
 						GreenColor();
@@ -296,6 +299,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					printf("You selected option number [2]\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
+					printf("Search by status\n");
 					GreenColor();
 					printf("[Message]: ");
 					WhiteColor();
@@ -325,6 +329,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					printf("You selected option number [3]\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
+					printf("Search by two fields\n");
 					SearchByTwoFields(ticketsList);
 					Logs(current->userName, "Search");
 					GreenColor();
@@ -350,6 +355,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					printf("You selcted option number [4]\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
+					printf("Search by date\n");
 					SearchByDate(ticketsList);
 					Logs(current->userName, "Search");
 					GreenColor();
@@ -375,6 +381,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					printf("You selcted option number [5]\n");
 					Delay (2);
 					system("cls");
+					printf("Search by price\n");
 					SearchByPrice(ticketsList);
 					Logs(current->userName, "Search");
 					GreenColor();
@@ -394,11 +401,11 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				}
 				case 6: {
 					GreenColor();
-					printf("[Message]: ");
 					WhiteColor();
 					printf("You selcted option number [6]\n");
 					Delay (2);
 					system("cls");
+					printf("Search by color\n");
 					SearchByColor(ticketsList);
 					Logs(current->userName, "Search");
 					
@@ -422,9 +429,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 		//Add car ticket (Menu option)
 		case 2: {
 			printf("\n==================================================================\n");
-			printf("Add Car Ticket\n");
 			Delay(2);
 			system("cls");
+			printf("Add Car Ticket\n");
 			AddTickets(TICKETS_PATH, ticketsList);
 			Logs(current->userName, "Create Ticket");
 			
@@ -434,9 +441,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 		case 3: {
 			if (current->level>1){
 				printf("\n==================================================================\n");
-				printf("Edit exsit car ticket\n");
 				Delay(2);
 				system("cls");
+				printf("Edit exsit car ticket\n");
 				UpdateTicket(ticketsList);
 				Logs(current->userName, "Edit Ticket");
 				
@@ -456,9 +463,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 		case 4: {
 			if (current->level>1){
 				printf("\n==================================================================\n");
-				printf("Delete exist ticket\n");
 				Delay(2);
 				system("cls");
+				printf("Delete exist ticket\n");
 				DeleteTicket(TICKETS_PATH, ticketsList);
 				Logs(current->userName, "Delete Ticket");
 				
@@ -491,7 +498,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				printf("Welcome to Admin area! Be careful with your operations.\n");
 				WhiteColor();
 				printf ("\n");
-				Delay (1);
+				Delay (2);
 				system("cls");
 				GreenColor();
 				printf("\n^^^^^^^^^^^^^^^^^^Admin Area^^^^^^^^^^^^^^^^^^^^^^\n");
@@ -503,7 +510,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				printf("[5]		Delete user from databse  *^\n");
 				printf("To exit to main menu press [0]. Remmber you are in Admin Mode.");
 				GreenColor();
-				printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+				printf("\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
 				WhiteColor();
 				printf("\n \n");
 				printf("Enter your option:");
@@ -564,9 +571,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				// Create user
 				case 4: {
 					printf("\n==================================================================\n");
-					printf("create user\n");
 					Delay(2);
 					system("cls"); // clear screen
+					printf("create new user\n");
 					AddUser(USERS_PATH, usersList);
 					Logs(current->userName, "Create user");
 					break;
@@ -574,9 +581,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				//delete user function
 				case 5: {
 					printf("\n==================================================================\n");
-					printf("Delete user\n");
 					Delay (2);
 					system("cls");//clr screen
+					printf("Delete user\n");
 					DeleteUser(USERS_PATH, usersList);
 					Logs(current->userName, "Delete User");
 					break;

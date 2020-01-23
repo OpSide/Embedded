@@ -110,7 +110,4 @@ barak           Logging         23/01/2020 22:31
 barak           Logging         23/01/2020 22:32
 Unauthorized    Log failure     23/01/2020 22:33
 barak           Logging         23/01/2020 22:33
-barak           Logging         23/01/2020 23:05
-barak           Logging         23/01/2020 23:07
-Unauthorized    Log failure     23/01/2020 23:09
-barak           Logging         23/01/2020 23:26
+Unauthorized    Log failure     23/01/2020 23:10
