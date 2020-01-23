@@ -378,7 +378,6 @@ void ReadTickets(char* path, listTicket* lst)
 		nodeTickets* tempNode = allocItemTickets(tempTicket);
 		insertLastTickets(lst, tempNode);
 	}
-	PrintTickets(*lst);
 	fclose(fp);
 	return 1;
 }

@@ -44,3 +44,5 @@ gge             Logging         22/01/2020 20:04
 gge             Search          22/01/2020 20:04
 barak           Logging         22/01/2020 20:06
 barak           Search          22/01/2020 20:06
+barak           Logging         23/01/2020 18:58
+(null)          Log failure     23/01/2020 19:05

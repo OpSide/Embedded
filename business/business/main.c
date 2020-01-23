@@ -114,12 +114,13 @@ void main() {
 		
 	};
 	Logs(currentUser,"Logging");
-	printf("Time:[%02d/%02d/%d, %02d:%02d],  %s, Welcome to Garage System! Your level: %d \n", day, month, year, hours, mins, currentUser->fullName, currentUser->level);
+	//printf("Time:[%02d/%02d/%d, %02d:%02d],  %s, Welcome to Garage System! Your level: %d \n", day, month, year, hours, mins, currentUser->fullName, currentUser->level);
 
 	/* Display Menu */
 	menu(currentUser, usersList, ticketsList);
 
 	free(usersList);
+	free(ticketsList);
 	//
 	system("pause");
 }

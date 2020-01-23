@@ -94,7 +94,7 @@
     fptr = fopen(LOGO_PATH, "r"); 
      if (fptr == NULL) 
      { 
-         printf("Oops...Cannot Print System logo\n"); 
+         printf("Oops...Cannot Print System log\n"); 
          exit(0); 
      } 
     

@@ -225,15 +225,3 @@ int insertBeforeUsers(listUsers *lst, nodeUser *item, nodeUser *link)
 	}
 	return 0;
 }
-//Prints all the elements in linked listUsers in forward traversal order
-void PrintUsers(listUsers lst) {
-	nodeUser* temp = lst.head;
-	printf("\n");
-	while (temp != NULL) {
-		//printf("%5d %30s %30s %10d %30s\n", temp->data.id, temp->data.artistName, temp->data.albumName, temp->data.trackNo, temp->data.trackName);
-		printf("%-15s %-15s %-15s  %-1d\n", temp->data.userName, temp->data.password, temp->data.fullName, temp->data.level);
-
-		temp = temp->next;
-	}
-	printf("\n");
-}
