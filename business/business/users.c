@@ -23,9 +23,6 @@ void ReadUsers(char* path,listUsers* lst)
 		return;
 	}
 
-	//header
-	fgets(temp, 100, fp);
-	puts(temp);
 	user tempUser;
 	while (fscanf(fp, "%15[^\n] %15[^\n] %15[^\n]%1d\n", tempUser.userName, tempUser.password, tempUser.fullName, &tempUser.level) > 0)
 	{

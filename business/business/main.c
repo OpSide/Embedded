@@ -108,13 +108,13 @@ void main() {
 		if (counter==3)
 		{
 			printf("You have tried to login more than 3 times. come back later\n");
-			Logs(NULL, "Log failure");
+			Logs("Unauthorized", "Log failure");
 			return 1;
 		}
 		
 	};
 	Logs(currentUser,"Logging");
-	//printf("Time:[%02d/%02d/%d, %02d:%02d],  %s, Welcome to Garage System! Your level: %d \n", day, month, year, hours, mins, currentUser->fullName, currentUser->level);
+	printf("Time:[%02d/%02d/%d, %02d:%02d],  %s, Welcome to Garage System! Your level: %d \n", day, month, year, hours, mins, currentUser->fullName, currentUser->level);
 
 	/* Display Menu */
 	menu(currentUser, usersList, ticketsList);
@@ -170,8 +170,8 @@ int LogIn(listUsers *lst, user* currentUser)
 	scanf("%s", &password);
 	system("cls"); //clear screen
 
-		char* tempUsername = (char*)malloc(sizeof(char) * ARRAY_SIZE);
-		char* tempPassword = (char*)malloc(sizeof(char) * ARRAY_SIZE);
+	char* tempUsername = (char*)malloc(sizeof(char) * ARRAY_SIZE);
+	char* tempPassword = (char*)malloc(sizeof(char) * ARRAY_SIZE);
 	while (tempNode != NULL)
 	{
 
@@ -237,6 +237,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 						SearchByModel(ticketsList);
 						Logs(current->userName, "Search");
 						printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
+						scanf("%s", &yes_char);
 						// lets check what the client wants. update ticket? or no
 						if(strcmp(yes_char, "y") == 0){
 							printf("\n Please wait.");
@@ -257,6 +258,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					Logs(current->userName, "Search");
 					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
 					// lets check what the client wants. update ticket? or no
+					scanf("%s", &yes_char);
 					if(strcmp(yes_char, "y") == 0){
 						printf("\n Please wait.");
 						Delay(1);
@@ -275,6 +277,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					Logs(current->userName, "Search");
 					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
 					// lets check what the client wants. update ticket? or no
+					scanf("%s", &yes_char);
 					if(strcmp(yes_char, "y") == 0){
 						printf("\n Please wait.");
 						Delay(1);
@@ -293,6 +296,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					Logs(current->userName, "Search");
 					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
 					// lets check what the client wants. update ticket? or no
+					scanf("%s", &yes_char);
 					if(strcmp(yes_char, "y") == 0){
 						printf("\n Please wait.");
 						Delay(1);
@@ -311,6 +315,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					Logs(current->userName, "Search");
 					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
 					// lets check what the client wants. update ticket? or no
+					scanf("%s", &yes_char);
 					if(strcmp(yes_char, "y") == 0){
 						printf("\n Please wait.");
 						Delay(1);

@@ -369,9 +369,6 @@ void ReadTickets(char* path, listTicket* lst)
 		return;
 	}
 
-	//header
-	fgets(temp, 100, fp);
-	puts(temp);
 	ticket tempTicket;
 	while (fscanf(fp, "%7d %15[^\n] %15[^\n] %15[^\n]%15d%1d\n", &tempTicket.carNumber, tempTicket.model, tempTicket.color,  tempTicket.date,&tempTicket.price ,&tempTicket.status) > 0)
 	{

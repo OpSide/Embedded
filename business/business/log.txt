@@ -46,3 +46,14 @@ barak           Logging         22/01/2020 20:06
 barak           Search          22/01/2020 20:06
 barak           Logging         23/01/2020 18:58
 (null)          Log failure     23/01/2020 19:05
+barak           Logging         23/01/2020 19:09
+barak           Search          23/01/2020 19:09
+Unauthorized    Log failure     23/01/2020 19:15
+barak           Logging         23/01/2020 19:15
+barak           Search          23/01/2020 19:15
+barak           Search          23/01/2020 19:16
+barak           Logging         23/01/2020 19:17
+barak           Search          23/01/2020 19:17
+barak           Logging         23/01/2020 19:17
+barak           Search          23/01/2020 19:17
+barak           Create Ticket   23/01/2020 19:18
