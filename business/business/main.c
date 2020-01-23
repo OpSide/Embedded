@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include "doubly_list_users.h"
 #include "doubly_list_tickets.h"
-#include <stdlib.h>
+#include "print_l.h"
 //#include "doublyLinkedList.h"
 
 char* fp_path;
@@ -80,30 +80,7 @@ void Delay(int number_of_seconds)
 /***
 * Handle function: Returns by referfance the current date and time
 ***/
-// void PrintFiles (char log_file_name){
-// 	 FILE *fptr; 
-    
-// 	char c; 
-//     // Open file
-// 	//fopen_s(&fptr, LOG_PATH, "r");
-//     fptr = fopen(log_file_name, "r"); 
-//     if (fptr == NULL) 
-//     { 
-//         printf("Cannot open file. Contact with the administrator \n"); 
-//         exit(0); 
-//     } 
-  
-//     // Read contents from file 
-//     c = fgetc(fptr); 
-//     while (c != EOF) 
-//     { 
-//         printf ("\n %c \n", c); 
-//         c = fgetc(fptr); 
-//     } 
-  
-//     fclose(fptr); 
-    
-// }
+
 void main() {
 
 	int day, month, year, hours, mins;
@@ -122,10 +99,9 @@ void main() {
 	initListTickets(ticketsList);
 	ReadUsers(USERS_PATH, usersList);
 	ReadTickets(TICKETS_PATH, ticketsList);
-
+	PrintLogo(); // Printing logo system
 	while (LogIn(usersList, currentUser) != 1);
 	Logs(currentUser,"Logging");
-	//AddUser(USERS_PATH, lst);
 	printf("Time:[%02d/%02d/%d, %02d:%02d],  %s, Welcome to Garage System! Your level: %d \n", day, month, year, hours, mins, currentUser->fullName, currentUser->level);
 
 	/* Display Menu */
@@ -402,20 +378,24 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					printf(".");
 					Delay (1); // time to see the message
 					printf(".\n");
+					Delay (1); // time to see the message
+					printf(".\n");
 					system("cls"); // clear screen
-					//PrintFiles("LOG_PATH");
+					PrintLogs(); // calling to print log function
 					break;
 				}
 				//print users function
 				case 2: {
 					printf("\n==================================================================\n");
-					printf("Printing users... Please wait");
+					printf("Printing users table... Please wait");
 					Delay (1); // time to see the message
 					printf(".");
 					Delay (1); // time to see the message
 					printf(".\n");
+					Delay (1); // time to see the message
+					printf(".\n");
 					system("cls"); // clear screen
-					//PrintFiles("USERS_PATH");
+					PrintUsers(); // calling to print users function
 					break;
 				}
 				//print car database function
@@ -426,8 +406,10 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					printf(".");
 					Delay (1); // time to see the message
 					printf(".\n");
+					Delay (1); // time to see the message
+					printf(".\n");
 					system("cls"); // clear screen
-					//PrintFiles("TICKETS_CAR");
+					PrintTickets(); //calling to print tickets function
 					break;
 				}
 				// Create user
