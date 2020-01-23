@@ -62,7 +62,7 @@ void WhiteColor () {
   printf("\033[0m");
 }
 void GreenColor () {
-  printf("\033[0;32m");
+  printf("\033[1;32m");
 }
 void LightBlue () {
   printf("\033[1;36m");
@@ -131,7 +131,7 @@ void main() {
 	};
 	Logs(currentUser,"Logging");
 	printf("\n\nTime:[%02d/%02d/%d, %02d:%02d]  ,", day, month, year, hours, mins);
-	GreenColor();
+	LightBlue();
 	printf("%s", currentUser->fullName);
 	WhiteColor();
 	printf(", Welcome to Garage System! Your level: %d \n", currentUser->level);
