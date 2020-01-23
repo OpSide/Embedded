@@ -120,7 +120,7 @@ void main() {
 	menu(currentUser, usersList, ticketsList);
 
 	free(usersList);
-	//free(ticketsList);
+	//
 	system("pause");
 }
 void removeSpaces(char* str)
@@ -242,6 +242,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 							Delay(1);
 							printf(".\n\n");
 							UpdateTicket(ticketsList);
+							Logs(current->userName, "Create Ticket");
 						}
 					break;
 				}
@@ -260,6 +261,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 						Delay(1);
 						printf(".\n\n");
 						UpdateTicket(ticketsList);
+						Logs(current->userName, "Create Ticket");
 					}
 					break;
 				}
@@ -277,6 +279,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 						Delay(1);
 						printf(".\n\n");
 						UpdateTicket(ticketsList);
+						Logs(current->userName, "Create Ticket");
 					}
 					break;
 				}
@@ -288,13 +291,13 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					SearchByDate(ticketsList);
 					Logs(current->userName, "Search");
 					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
-					scanf("%s",yes_char);
 					// lets check what the client wants. update ticket? or no
 					if(strcmp(yes_char, "y") == 0){
 						printf("\n Please wait.");
 						Delay(1);
 						printf(".\n\n");
 						UpdateTicket(ticketsList);
+						Logs(current->userName, "Create Ticket");
 					}
 					break;
 				}
@@ -312,7 +315,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 						Delay(1);
 						printf(".\n\n");
 						UpdateTicket(ticketsList);
+						Logs(current->userName, "Create Ticket");
 					}
+					break;
 				}
 				case 6: {
 					printf("[Message]: You selcted option number [6]\n");
@@ -320,7 +325,8 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					system("cls");
 					SearchByColor(ticketsList);
 					Logs(current->userName, "Search");
-					free(ticketsList);
+					
+					break;
 				}
 				// Invalid input from client
 				default: {
@@ -332,6 +338,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					break;
 				}
 			}
+			break;
 		}
 
 		//Add car ticket (Menu option)
@@ -342,7 +349,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 			system("cls");
 			AddTickets(TICKETS_PATH, ticketsList);
 			Logs(current->userName, "Create Ticket");
-			free(ticketsList);
+			
 			break;
 		}
 		// Edit Car tickets function (Menu option)
@@ -354,7 +361,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				system("cls");
 				UpdateTicket(ticketsList);
 				Logs(current->userName, "Edit Ticket");
-				free(ticketsList);
+				
 			}
 			else {
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
@@ -374,7 +381,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				system("cls");
 				DeleteTicket(TICKETS_PATH, ticketsList);
 				Logs(current->userName, "Delete Ticket");
-				free(ticketsList);
+				
 				}
 				else {
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
@@ -469,7 +476,6 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					system("cls"); // clear screen
 					AddUser(USERS_PATH, usersList);
 					Logs(current->userName, "Create user");
-					free(usersList);
 					break;
 				}
 				//delete user function
@@ -480,7 +486,6 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					system("cls");//clr screen
 					DeleteUser(USERS_PATH, usersList);
 					Logs(current->userName, "Delete User");
-					free(usersList);
 					break;
 				}
 				default: {
@@ -500,6 +505,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				system("cls"); // clear screen
 				return 1;
 			}
+			break;
 		}
 		}
 	}

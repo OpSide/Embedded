@@ -1,2 +1,5 @@
 carnumber      model          color          date           price          status         
-8877755        rio            black          19-01-2020     1100           0
+8877755        mitsubishi     white          22-01-2020     0              0
+5544433        subaro         yellow'        22-01-2020     0              0
+7654443        bnz            black          20-01-2020     5400           0
+1234567        folk           black          22-01-2020     6456           1
