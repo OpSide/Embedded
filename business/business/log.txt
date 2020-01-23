@@ -3,3 +3,44 @@ Raviv           Logging         01/02/1992 20:02
 admin           logging         20/01/2020 22:02
 admin           Logging         20/01/2020 22:03
 barak           logging         20/01/2020 22:06
+barak           Logging         22/01/2020 18:52
+barak           Search          22/01/2020 18:52
+barak           Logging         22/01/2020 18:54
+barak           Search          22/01/2020 18:54
+barak           Logging         22/01/2020 18:56
+barak           Search          22/01/2020 18:56
+barak           Logging         22/01/2020 18:57
+barak           Logging         22/01/2020 18:58
+barak           Create Ticket   22/01/2020 18:59
+barak           Logging         22/01/2020 19:01
+barak           Create Ticket   22/01/2020 19:01
+barak           Logging         22/01/2020 19:04
+barak           Create Ticket   22/01/2020 19:04
+barak           Create Ticket   22/01/2020 19:05
+barak           Edit Ticket     22/01/2020 19:48
+barak           Edit Ticket     22/01/2020 19:49
+barak           Delete Ticket   22/01/2020 19:50
+barak           Delete Ticket   22/01/2020 19:50
+barak           Create Ticket   22/01/2020 19:51
+barak           Search          22/01/2020 19:51
+barak           Search          22/01/2020 19:51
+barak           Search          22/01/2020 19:52
+barak           Search          22/01/2020 19:52
+barak           Search          22/01/2020 19:53
+barak           Search          22/01/2020 19:54
+barak           Search          22/01/2020 19:54
+barak           Search          22/01/2020 19:54
+barak           Search          22/01/2020 19:55
+barak           Search          22/01/2020 19:55
+barak           Create user     22/01/2020 19:56
+gge             Logging         22/01/2020 19:59
+gge             Logging         22/01/2020 20:01
+gge             Search          22/01/2020 20:01
+gge             Logging         22/01/2020 20:02
+gge             Search          22/01/2020 20:02
+gge             Search          22/01/2020 20:03
+gge             Logging         22/01/2020 20:04
+gge             Logging         22/01/2020 20:04
+gge             Search          22/01/2020 20:04
+barak           Logging         22/01/2020 20:06
+barak           Search          22/01/2020 20:06

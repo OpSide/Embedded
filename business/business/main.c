@@ -132,7 +132,7 @@ void main() {
 	menu(currentUser, usersList, ticketsList);
 
 	free(usersList);
-	//free(ticketsList);
+	//
 	system("pause");
 }
 void removeSpaces(char* str)
@@ -246,7 +246,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 						system("cls"); // clear screen
 						SearchByModel(ticketsList);
 						Logs(current->userName, "Search");
-						free(ticketsList);
+						
 					break;
 				}
 				// Search  STATUS
@@ -257,7 +257,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					printf("[Message]: [1] present sent to the customer. [0] present In the garage:\n");
 					SearchByStatus(ticketsList);
 					Logs(current->userName, "Search");
-					free(ticketsList);
+					
 					break;
 				}
 				// Search by TWO FIELDS
@@ -267,7 +267,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					system("cls"); // clear screen
 					SearchByTwoFields(ticketsList);
 					Logs(current->userName, "Search");
-					free(ticketsList);
+					
 					break;
 				}
 				// Search DATE
@@ -277,7 +277,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					system("cls"); // clear screen
 					SearchByDate(ticketsList);
 					Logs(current->userName, "Search");
-					free(ticketsList);
+					
 					break;
 				}
 				// Search PRICE
@@ -287,7 +287,8 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					system("cls");
 					SearchByPrice(ticketsList);
 					Logs(current->userName, "Search");
-					free(ticketsList);
+					
+					break;
 				}
 				case 6: {
 					printf("[Message]: You selcted option number [6]\n");
@@ -295,7 +296,8 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					system("cls");
 					SearchByColor(ticketsList);
 					Logs(current->userName, "Search");
-					free(ticketsList);
+					
+					break;
 				}
 				// Invalid input from client
 				default: {
@@ -307,6 +309,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					break;
 				}
 			}
+			break;
 		}
 
 		//Add car ticket (Menu option)
@@ -317,7 +320,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 			system("cls");
 			AddTickets(TICKETS_PATH, ticketsList);
 			Logs(current->userName, "Create Ticket");
-			free(ticketsList);
+			
 			break;
 		}
 		// Edit Car tickets function (Menu option)
@@ -329,7 +332,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				system("cls");
 				UpdateTicket(ticketsList);
 				Logs(current->userName, "Edit Ticket");
-				free(ticketsList);
+				
 			}
 			else {
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
@@ -349,7 +352,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				system("cls");
 				DeleteTicket(TICKETS_PATH, ticketsList);
 				Logs(current->userName, "Delete Ticket");
-				free(ticketsList);
+				
 				}
 				else {
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
@@ -438,7 +441,6 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					system("cls"); // clear screen
 					AddUser(USERS_PATH, usersList);
 					Logs(current->userName, "Create user");
-					free(usersList);
 					break;
 				}
 				//delete user function
@@ -449,7 +451,6 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					system("cls");//clr screen
 					DeleteUser(USERS_PATH, usersList);
 					Logs(current->userName, "Delete User");
-					free(usersList);
 					break;
 				}
 				default: {
@@ -469,6 +470,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				system("cls"); // clear screen
 				return 1;
 			}
+			break;
 		}
 		}
 	}

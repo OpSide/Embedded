@@ -98,19 +98,21 @@ void SearchByTwoFields(listTicket* lst)
 	nodeTickets* tempNode;
 
 	printf("Enter model: ");
+	getchar();
 	fgets(str2, 15, stdin);
 	str2[strlen(str2) - 1] = '\0';
 	printf("Enter color: ");
+	getchar();
 	fgets(str1, 15, stdin);
 	str1[strlen(str1) - 1] = '\0';
 
 	tempNode = lst->head;
 	if (tempNode == NULL) return;
 
-	removeSpaces(&tempNode->data.color);	
-	removeSpaces(&tempNode->data.model);
 	while (tempNode != NULL)
 	{
+	removeSpaces(&tempNode->data.color);	
+	removeSpaces(&tempNode->data.model);
 		if (strncmp(&tempNode->data.color, str1) == 0 && strncmp(tempNode->data.model , str2) == 0)
 		{
 			printf("Car found!\n");
@@ -130,16 +132,16 @@ void SearchByModel(listTicket* lst)
 	nodeTickets* tempNode;
 
 	printf("Enter model: ");
+	getchar();
 	fgets(str2, 15, stdin);
 	str2[strlen(str2) - 1] = '\0';
-
 
 	tempNode = lst->head;
 	if (tempNode == NULL) return;
 
-	removeSpaces(&tempNode->data.model);
 	while (tempNode != NULL)
 	{
+	removeSpaces(&tempNode->data.model);
 		if (strncmp(tempNode->data.model, str2) == 0)
 		{
 			printf("Car found!\n");
@@ -160,6 +162,7 @@ void SearchByColor(listTicket* lst)
 	nodeTickets* tempNode;
 
 	printf("Enter color: ");
+	getchar();
 	fgets(str2, 15, stdin);
 	str2[strlen(str2) - 1] = '\0';
 
@@ -167,9 +170,9 @@ void SearchByColor(listTicket* lst)
 	tempNode = lst->head;
 	if (tempNode == NULL) return;
 
-	removeSpaces(&tempNode->data.color);
 	while (tempNode != NULL)
 	{
+	removeSpaces(&tempNode->data.color);
 		if (strncmp(tempNode->data.color, str2) == 0)
 		{
 			printf("Car found!\n");
