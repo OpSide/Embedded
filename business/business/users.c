@@ -22,7 +22,7 @@ void ReadUsers(char* path,listUsers* lst)
 		printf("File not found!\n");
 		return;
 	}
-
+	fgets(temp, 100, fp);
 	user tempUser;
 	while (fscanf(fp, "%15[^\n] %15[^\n] %15[^\n]%1d\n", tempUser.userName, tempUser.password, tempUser.fullName, &tempUser.level) > 0)
 	{

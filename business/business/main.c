@@ -36,6 +36,7 @@ void ReadUsers(char* path, listUsers* lst);
 void DeleteUser(char* path, listUsers* lst);
 void AddUser(char* path, listUsers* lst);
 
+void sortList(nodeTickets* head);
 void ReadTickets(char* path, listTicket* lst);
 void DeleteTicket(char* path, listTicket* lst);
 void AddTickets(char* path, listTicket* lst);
@@ -101,6 +102,7 @@ void main() {
 	initListTickets(ticketsList);
 	ReadUsers(USERS_PATH, usersList);
 	ReadTickets(TICKETS_PATH, ticketsList);
+	sortList(ticketsList->head);
 	PrintLogo(); // Printing logo system
 	while (LogIn(usersList, currentUser) != 1){
 		// secure the log with limit the time of retries

@@ -11,6 +11,8 @@
 #include <sys/stat.h>
 #include <time.h>
 
+void sortList(nodeTickets* head);
+
 #define TICKETS_PATH "tickets.txt"
 void Search(listTicket* lst, char* path, char* ops)
 {
@@ -296,14 +298,15 @@ void SearchByDate(listTicket* lst)
 void saveTicketsToFile(listTicket* lst ,char* path)
 {
 	FILE* fp;
-
+	sortList(lst->head);
 	fopen_s(&fp, path, "w"); //Erase old data
 
 	nodeTickets* current = lst->head;
 	fprintf_s(fp, "%-15s%-15s%-15s%-15s%-15s%-15s\n", "carnumber", "model", "color", "date","price", "status");
-	for (current; current != NULL; current = current->next)
+	while(current != NULL)
 	{
 		fprintf_s(fp, "%-7d        %-15s%-15s%-15s%-4d           %-1d\n", current->data.carNumber, current->data.model, current->data.color, current->data.date,current->data.price, current->data.status);
+		current = current->next;
 	}
 
 	fclose(fp);
@@ -368,6 +371,7 @@ void ReadTickets(char* path, listTicket* lst)
 		printf("File not found!\n");
 		return;
 	}
+	fgets(temp, 100, fp);
 
 	ticket tempTicket;
 	while (fscanf(fp, "%7d %15[^\n] %15[^\n] %15[^\n]%15d%1d\n", &tempTicket.carNumber, tempTicket.model, tempTicket.color,  tempTicket.date,&tempTicket.price ,&tempTicket.status) > 0)
@@ -378,17 +382,41 @@ void ReadTickets(char* path, listTicket* lst)
 	fclose(fp);
 	return 1;
 }
-
+//
+//void WriteTicketsFile(listTicket* lst, char* fp_path)
+//{
+//	sortList(lst->head);
+//	FILE* fp;
+//	char *temp = "carnumber      model          color          date           price          status\n";
+//
+//	fopen_s(&fp, fp_path, "w+");
+//	if (!fp)
+//	{
+//		printf("File not found!\n");
+//		return;
+//	}
+//	fputs("carnumber      model          color          date           price          status\n", 100, fp);
+//
+//	nodeTickets* tempNode = lst->head;
+//	while (tempNode != NULL)
+//	{
+//		fprintf(fp, "%-7d        %-15s%-15s%-15s%-4d           %-1d\n", tempNode->data.carNumber, tempNode->data.model, tempNode->data.color, tempNode->data.date, tempNode->data.price, tempNode->data.status);
+//		tempNode = tempNode->next;
+//	}
+//	fclose(fp);
+//	return 1;
+//}
+//
 // Add ticket function
 void AddTickets(char* fp_path, listTicket* lst)
 {
 	ticket tempTicket;
-	FILE* fp = fopen(fp_path, "a");
-	if (!fp)
-	{
-		printf("File doesnt exists\n");
-		return;
-	}
+	//FILE* fp = fopen(fp_path, "a");
+	//if (!fp)
+	//{
+	//	printf("File doesnt exists\n");
+	//	return;
+	//}
 
 	printf("Enter car number: ");
 	scanf("%d", &tempTicket.carNumber);
@@ -408,10 +436,10 @@ void AddTickets(char* fp_path, listTicket* lst)
 	tempTicket.date[strlen(tempTicket.date) - 1] = '\0';
 
 	nodeTickets* tempNode = allocItemTickets(tempTicket);
-	fprintf(fp, "%-7d        %-15s%-15s%-15s%-4d           %-1d\n", tempTicket.carNumber, tempTicket.model, tempTicket.color, tempTicket.date,tempTicket.price, tempTicket.status);
 	insertLastTickets(lst, tempNode);
+	saveTicketsToFile(lst, TICKETS_PATH);
 	printf("New ticket added!\n");
-	fclose(fp);
+	//fclose(fp);
 }
 
 static size_t DeleteLine(char* buffer, size_t size, const char* carNumber)

@@ -58,7 +58,38 @@ nodeTickets* getLinkByIndexTickets(listTicket *lst, int idx)
 	
 	return link;
 }
+void swap(ticket* a, ticket* b)
+{
+	ticket temp = *a;
+	*a = *b;
+	*b = temp;
+}
+void sortList(nodeTickets* head)
+{
+	int swapped, i;
+	 nodeTickets* ptr1;
+	 nodeTickets* lptr = NULL;
 
+	/* Checking for empty list */
+	if (head == NULL)
+		return;
+	do
+	{
+		swapped = 0;
+		ptr1 = head;
+
+		while (ptr1->next != lptr)
+		{
+			if (ptr1->data.carNumber > ptr1->next->data.carNumber)
+			{
+				swap(&ptr1->data, &ptr1->next->data);
+				swapped = 1;
+			}
+			ptr1 = ptr1->next;
+		}
+		lptr = ptr1;
+	} while (swapped);
+}
 //insert item at the first location
 int insertFirstTickets(listTicket *lst, nodeTickets *item)
 {

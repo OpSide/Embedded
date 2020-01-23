@@ -57,3 +57,29 @@ barak           Search          23/01/2020 19:17
 barak           Logging         23/01/2020 19:17
 barak           Search          23/01/2020 19:17
 barak           Create Ticket   23/01/2020 19:18
+barak           Logging         23/01/2020 20:54
+barak           Edit Ticket     23/01/2020 20:54
+barak           Create Ticket   23/01/2020 20:55
+barak           Logging         23/01/2020 20:57
+barak           Create Ticket   23/01/2020 20:58
+barak           Logging         23/01/2020 21:02
+barak           Logging         23/01/2020 21:05
+barak           Logging         23/01/2020 21:07
+barak           Edit Ticket     23/01/2020 21:08
+barak           Logging         23/01/2020 21:09
+barak           Logging         23/01/2020 21:10
+barak           Logging         23/01/2020 21:11
+barak           Logging         23/01/2020 21:12
+barak           Logging         23/01/2020 21:12
+barak           Logging         23/01/2020 21:16
+barak           Logging         23/01/2020 21:18
+barak           Logging         23/01/2020 21:19
+barak           Logging         23/01/2020 21:20
+barak           Logging         23/01/2020 21:25
+barak           Create Ticket   23/01/2020 21:26
+barak           Logging         23/01/2020 21:27
+barak           Create Ticket   23/01/2020 21:27
+barak           Logging         23/01/2020 21:28
+barak           Create Ticket   23/01/2020 21:29
+barak           Logging         23/01/2020 21:29
+barak           Create Ticket   23/01/2020 21:30
