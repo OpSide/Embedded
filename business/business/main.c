@@ -87,6 +87,7 @@ void main() {
 	char username[15];
 	char password[15];
 	char* temp;
+	int counter=0;
 
 	listUsers* usersList = (listUsers*)malloc(sizeof(listUsers));
 	listTicket* ticketsList = (listTicket*)malloc(sizeof(listTicket));
@@ -100,7 +101,17 @@ void main() {
 	ReadUsers(USERS_PATH, usersList);
 	ReadTickets(TICKETS_PATH, ticketsList);
 	PrintLogo(); // Printing logo system
-	while (LogIn(usersList, currentUser) != 1);
+	while (LogIn(usersList, currentUser) != 1){
+		// secure the log with limit the time of retries
+		counter++;
+		if (counter==3)
+		{
+			printf("You have tried to login more than 3 times. come back later\n");
+			Logs(NULL, "Log failure");
+			return 1;
+		}
+		
+	};
 	Logs(currentUser,"Logging");
 	printf("Time:[%02d/%02d/%d, %02d:%02d],  %s, Welcome to Garage System! Your level: %d \n", day, month, year, hours, mins, currentUser->fullName, currentUser->level);
 
