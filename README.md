@@ -13,4 +13,4 @@
 
 ### Example
 
-![Example](צילום מסך 2020-01-23 ב-23.28.27.png)
+![Example](example.png)
