@@ -4,7 +4,7 @@
 #include "print_l.h"
 #include <string.h>
 
-void redColor () {
+void RedColor () {
   printf("\033[1;31m");
 }
 void WhiteColor () {
@@ -15,6 +15,11 @@ void GreenColor () {
 }
 void main (){
 
-red();
-printf("hi");
+RedColor();
+printf("\nhi\n");
+WhiteColor();
+printf("\ncheck2\n");
+GreenColor();
+printf("green");
+WhiteColor();
 }

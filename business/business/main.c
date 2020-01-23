@@ -55,6 +55,15 @@ void menu(user* current, listUsers* tickets);
 * You may change it according to your needs.
 ***/
 
+void RedColor () {
+  printf("\033[1;31m");
+}
+void WhiteColor () {
+  printf("\033[0m");
+}
+void GreenColor () {
+  printf("\033[0;32m");
+}
 //This function hangle with logs implementation. getting 2 objects: char that describe the operation and audit the current user
 void Logs (user* current, char operation [15])
 {
@@ -207,7 +216,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 		if (current->level==3){
 		printf("\n *	[5] Admin area                  *\n");
 		}
+		GreenColor();
 		printf("\n Please select your action [1-5]. to exit press [0]");
+		WhiteColor();
 		scanf("%d", &menu_option);
 
 		switch (menu_option) {
@@ -336,7 +347,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				}
 				// Invalid input from client
 				default: {
+					RedColor();
 					printf("ERROR: Invalid number. Enter vaild number!\n");
+					WhiteColor();
 					printf("Re-Enter option:");
 					scanf("%d", &action);
 					Delay (2); // time to see the message
@@ -350,7 +363,7 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 		//Add car ticket (Menu option)
 		case 2: {
 			printf("\n==================================================================\n");
-			printf("Add Car Ticket");
+			printf("Add Car Ticket\n");
 			Delay(2);
 			system("cls");
 			AddTickets(TICKETS_PATH, ticketsList);
@@ -409,7 +422,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				Delay (1);
 				printf(".\n");
 				system("cls");
+				RedColor();
 				printf("Welcome to Admin area! Be careful with your operations.\n");
+				WhiteColor();
 				printf ("\n");
 				Delay (1);
 				system("cls");
