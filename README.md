@@ -10,3 +10,7 @@
 ### Copyrights
 - Barak Pahima
 - Raviv Nachum
+
+### Example
+
+![Example](link-to-image)
