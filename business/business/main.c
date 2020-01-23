@@ -226,7 +226,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 		//Search cars (Menu option)
 		case 1: {
 			printf("\n==================================================================\n");
+			GreenColor();
 			printf("choose searching by MODEL [1] or STATUS [2] or BOTH [3] or DATE [4] or PRICE [5] or COLOR [6]. to Exit press 0.\n");
+			WhiteColor();
 			printf("enter your option: ");
 			scanf("%d", &action);
 			// Check for chosen action (search car menu option)
@@ -235,19 +237,28 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 			{
 				// Go back to main menu
 				case 0: {
-					printf("[Message]: Exit to menu.\n");
+					GreenColor();
+					printf("[Message]: ");
+					WhiteColor();
+					printf("Exit to menu.\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
 				}
 				// Search MODEL
 				case 1: {
-						printf("[Message]: You selected option number [1]\n");
+						GreenColor();
+						printf("[Message]: ");
+						WhiteColor();
+						printf("You selected option number [1]\n");
 						Delay (2); // time to see the message
 						system("cls"); // clear screen
 						SearchByModel(ticketsList);
 						Logs(current->userName, "Search");
-						printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
+						GreenColor();
+						printf("\n\n[Message]: ");
+						WhiteColor();
+						printf("to update ticket write the letter 'y'. to exit type any other key: ");
 						scanf("%s", &yes_char);
 						// lets check what the client wants. update ticket? or no
 						if(strcmp(yes_char, "y") == 0){
@@ -261,13 +272,22 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				}
 				// Search  STATUS
 				case 2: {
-					printf("[Message]: You selected option number [2]\n");
+					GreenColor();
+					printf("[Message]: ");
+					WhiteColor();
+					printf("You selected option number [2]\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
-					printf("[Message]: [1] present sent to the customer. [0] present In the garage:\n");
+					GreenColor();
+					printf("[Message]: ");
+					WhiteColor();
+					printf("[1] present sent to the customer. [0] present In the garage:\n");
 					SearchByStatus(ticketsList);
 					Logs(current->userName, "Search");
-					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
+					GreenColor();
+					printf("\n\n[Message]: ");
+					WhiteColor();
+					printf("to update ticket write the letter 'y'. to exit type any other key: ");
 					// lets check what the client wants. update ticket? or no
 					scanf("%s", &yes_char);
 					if(strcmp(yes_char, "y") == 0){
@@ -281,12 +301,18 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				}
 				// Search by TWO FIELDS
 				case 3: {
-					printf("[Message]: You selected option number [3]\n");
+					GreenColor();
+					printf("[Message]: ");
+					WhiteColor();
+					printf("You selected option number [3]\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					SearchByTwoFields(ticketsList);
 					Logs(current->userName, "Search");
-					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
+					GreenColor();
+					printf("\n\n[Message]: ");
+					WhiteColor();
+					printf("to update ticket write the letter 'y'. to exit type any other key: ");
 					// lets check what the client wants. update ticket? or no
 					scanf("%s", &yes_char);
 					if(strcmp(yes_char, "y") == 0){
@@ -300,12 +326,18 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				}
 				// Search DATE
 				case 4: {
-					printf("[Message]: You selcted option number [4]\n");
+					GreenColor();
+					printf("[Message]: ");
+					WhiteColor();
+					printf("You selcted option number [4]\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					SearchByDate(ticketsList);
 					Logs(current->userName, "Search");
-					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
+					GreenColor();
+					printf("\n\n[Message]: ");
+					WhiteColor();
+					printf("[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
 					// lets check what the client wants. update ticket? or no
 					scanf("%s", &yes_char);
 					if(strcmp(yes_char, "y") == 0){
@@ -319,12 +351,18 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				}
 				// Search PRICE
 				case 5: {
-					printf("[Message]: You selcted option number [5]\n");
+					GreenColor();
+					printf("[Message]: ");
+					WhiteColor();
+					printf("You selcted option number [5]\n");
 					Delay (2);
 					system("cls");
 					SearchByPrice(ticketsList);
 					Logs(current->userName, "Search");
-					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
+					GreenColor();
+					printf("\n\n[Message]: ");
+					WhiteColor();
+					printf("to update ticket write the letter 'y'. to exit type any other key: ");
 					// lets check what the client wants. update ticket? or no
 					scanf("%s", &yes_char);
 					if(strcmp(yes_char, "y") == 0){
@@ -337,7 +375,10 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					break;
 				}
 				case 6: {
-					printf("[Message]: You selcted option number [6]\n");
+					GreenColor();
+					printf("[Message]: ");
+					WhiteColor();
+					printf("You selcted option number [6]\n");
 					Delay (2);
 					system("cls");
 					SearchByColor(ticketsList);
@@ -383,7 +424,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				
 			}
 			else {
+				RedColor();
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
+				WhiteColor();
 				Logs(current->userName, "No Permission");
 				Delay (2); // time to see the message
 				system("cls"); // clear screen
@@ -403,7 +446,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				
 				}
 				else {
+				RedColor();
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
+				WhiteColor();
 				Logs(current->userName, "No Permission");
 				Delay (2); // time to see the message
 				system("cls"); // clear screen
@@ -416,11 +461,13 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 		case 5: {
 			if (current->level==3){
 				printf("\n==================================================================\n");
+				GreenColor();
 				printf("Entring to Admin Mode.");
 				Delay (1);
 				printf(".\n");
 				Delay (1);
 				printf(".\n");
+				WhiteColor();
 				system("cls");
 				RedColor();
 				printf("Welcome to Admin area! Be careful with your operations.\n");
@@ -428,21 +475,28 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 				printf ("\n");
 				Delay (1);
 				system("cls");
+				GreenColor();
 				printf("\n^^^^^^^^^^^^^^^^^^Admin Area^^^^^^^^^^^^^^^^^^^^^^\n");
+				WhiteColor();
 				printf("[1]		Print logs                *^\n");
 				printf("[2]		Print users               *^\n");
 				printf("[3]		Print Car Database        *^\n");
 				printf("[4]		Add new user	          *^\n");
 				printf("[5]		Delete user from databse  *^\n");
 				printf("To exit to main menu press [0]. Remmber you are in Admin Mode.");
+				GreenColor();
 				printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+				WhiteColor();
 				printf("\n \n");
 				printf("Enter your option:");
 				scanf("%d", &action);
 			switch(action){
 				case 0: {
 					printf("\n==================================================================\n");
-					printf("[Message]: Exit to menu.\n");
+					GreenColor();
+					printf("[Message]: ");
+					WhiteColor();
+					printf("Exit to menu.\n");
 					Delay (2); // time to see the message
 					system("cls"); // clear screen
 					break;
@@ -510,7 +564,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					break;
 				}
 				default: {
+					RedColor();
 					printf("ERROR: Invalid number. Enter vaild number!\n");
+					WhiteColor();
 					printf("Re-Enter option:");
 					scanf("%d", &action);
 					Delay (2); // time to see the message
@@ -520,7 +576,9 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 			}
 			}
 			else{
+				RedColor();
 				printf("You dont have PERMISSIONS. Contact with the administrator.\n");
+				WhiteColor();
 				Logs(current->userName, "No Permission");
 				Delay (2); // time to see the message
 				system("cls"); // clear screen
