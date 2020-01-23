@@ -32,7 +32,6 @@ void ReadUsers(char* path,listUsers* lst)
 		nodeUser* tempNode = allocItemUser(tempUser);
 		insertLastUsers(lst, tempNode);
 	}
-	PrintUsers(*lst);
 	fclose(fp);
 	return 1;
 }

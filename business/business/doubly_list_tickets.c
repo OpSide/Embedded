@@ -225,16 +225,4 @@ int insertBeforeTickets(listTicket *lst, nodeTickets *item, nodeTickets *link)
 	}
 	return 0;
 }
-//Prints all the elements in linked listTicket in forward traversal order
-void PrintTickets(listTicket lst) {
-	nodeTickets* temp = lst.head;
-	printf("\n");
-	while (temp != NULL) {
-		//printf("%5d %30s %30s %10d %30s\n", temp->data.id, temp->data.artistName, temp->data.albumName, temp->data.trackNo, temp->data.trackName);
-		printf("%-7d        %-15s%-15s%-15s%-4d           %-1d\n", temp->data.carNumber, temp->data.model, temp->data.color, temp->data.date,temp->data.price, temp->data.status);
-
-		temp = temp->next;
-	}
-	printf("\n");
-}
 
