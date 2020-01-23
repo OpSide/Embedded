@@ -64,6 +64,9 @@ void WhiteColor () {
 void GreenColor () {
   printf("\033[0;32m");
 }
+void LightBlue () {
+  printf("\033[1;36m");
+}
 //This function hangle with logs implementation. getting 2 objects: char that describe the operation and audit the current user
 void Logs (user* current, char operation [15])
 {
@@ -110,20 +113,28 @@ void main() {
 	initListTickets(ticketsList);
 	ReadUsers(USERS_PATH, usersList);
 	ReadTickets(TICKETS_PATH, ticketsList);
+	LightBlue();
 	PrintLogo(); // Printing logo system
+	WhiteColor();
 	while (LogIn(usersList, currentUser) != 1){
 		// secure the log with limit the time of retries
 		counter++;
 		if (counter==3)
 		{
+			RedColor();
 			printf("You have tried to login more than 3 times. come back later\n");
+			WhiteColor();
 			Logs("Unauthorized", "Log failure");
 			return 1;
 		}
 		
 	};
 	Logs(currentUser,"Logging");
-	printf("Time:[%02d/%02d/%d, %02d:%02d],  %s, Welcome to Garage System! Your level: %d \n", day, month, year, hours, mins, currentUser->fullName, currentUser->level);
+	printf("\n\nTime:[%02d/%02d/%d, %02d:%02d]  ,", day, month, year, hours, mins);
+	GreenColor();
+	printf("%s", currentUser->fullName);
+	WhiteColor();
+	printf(", Welcome to Garage System! Your level: %d \n", currentUser->level);
 
 	/* Display Menu */
 	menu(currentUser, usersList, ticketsList);
