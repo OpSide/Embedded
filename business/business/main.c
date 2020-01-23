@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
 #include "doubly_list_users.h"
 #include "doubly_list_tickets.h"
 #include "print_l.h"
@@ -191,6 +192,7 @@ int LogIn(listUsers *lst, user* currentUser)
 void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 {
 	int menu_option, action; //MENU_OPTION - gets from client the selected menu number. ACTION - gets from the client the selected operation in selcted menu number.
+	char yes_char[1]; // after the search the program ask the client - do you want update the ticket or no? 
 
 	while (1) {
 		// MENU FOR client 
@@ -233,7 +235,14 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 						system("cls"); // clear screen
 						SearchByModel(ticketsList);
 						Logs(current->userName, "Search");
-						free(ticketsList);
+						printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
+						// lets check what the client wants. update ticket? or no
+						if(strcmp(yes_char, "y") == 0){
+							printf("\n Please wait.");
+							Delay(1);
+							printf(".\n\n");
+							UpdateTicket(ticketsList);
+						}
 					break;
 				}
 				// Search  STATUS
@@ -244,7 +253,14 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					printf("[Message]: [1] present sent to the customer. [0] present In the garage:\n");
 					SearchByStatus(ticketsList);
 					Logs(current->userName, "Search");
-					free(ticketsList);
+					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
+					// lets check what the client wants. update ticket? or no
+					if(strcmp(yes_char, "y") == 0){
+						printf("\n Please wait.");
+						Delay(1);
+						printf(".\n\n");
+						UpdateTicket(ticketsList);
+					}
 					break;
 				}
 				// Search by TWO FIELDS
@@ -254,7 +270,14 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					system("cls"); // clear screen
 					SearchByTwoFields(ticketsList);
 					Logs(current->userName, "Search");
-					free(ticketsList);
+					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
+					// lets check what the client wants. update ticket? or no
+					if(strcmp(yes_char, "y") == 0){
+						printf("\n Please wait.");
+						Delay(1);
+						printf(".\n\n");
+						UpdateTicket(ticketsList);
+					}
 					break;
 				}
 				// Search DATE
@@ -264,7 +287,15 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					system("cls"); // clear screen
 					SearchByDate(ticketsList);
 					Logs(current->userName, "Search");
-					free(ticketsList);
+					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
+					scanf("%s",yes_char);
+					// lets check what the client wants. update ticket? or no
+					if(strcmp(yes_char, "y") == 0){
+						printf("\n Please wait.");
+						Delay(1);
+						printf(".\n\n");
+						UpdateTicket(ticketsList);
+					}
 					break;
 				}
 				// Search PRICE
@@ -274,7 +305,14 @@ void menu(user* current, listUsers* usersList, listTicket* ticketsList)
 					system("cls");
 					SearchByPrice(ticketsList);
 					Logs(current->userName, "Search");
-					free(ticketsList);
+					printf("\n\n[Message]: to update ticket write the letter 'y'. to exit type any other key: ");
+					// lets check what the client wants. update ticket? or no
+					if(strcmp(yes_char, "y") == 0){
+						printf("\n Please wait.");
+						Delay(1);
+						printf(".\n\n");
+						UpdateTicket(ticketsList);
+					}
 				}
 				case 6: {
 					printf("[Message]: You selcted option number [6]\n");
